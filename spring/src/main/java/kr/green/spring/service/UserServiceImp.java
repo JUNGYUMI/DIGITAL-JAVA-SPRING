@@ -20,5 +20,5 @@ public class UserServiceImp implements UserService {
 	public int getCount() {
 		return userDao.getCount();
 	}
-
+	
 }

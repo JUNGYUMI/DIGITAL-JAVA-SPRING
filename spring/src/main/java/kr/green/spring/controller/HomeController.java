@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.spring.service.UserService;
 
+
 /**
  * Handles requests for the application home page.
  */
@@ -23,12 +24,11 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(ModelAndView mv) {
 		logger.info("URI:/");
-		//
 		mv.setViewName("/main/home");
 		return mv;
 	}
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public ModelAndView testGet(ModelAndView mv, String id, String pw) {
+	public ModelAndView testGet(ModelAndView mv,String id, String pw) {
 		logger.info("URI:/test");
 		mv.setViewName("/main/test");
 		mv.addObject("title", "테스트");
@@ -36,7 +36,6 @@ public class HomeController {
 		logger.info("전송된 비밀번호 : " + pw);
 		String userPw = userService.getPw(id);
 		logger.info("조회된 비밀번호 : " + userPw);
-		// 현재 DB 사람 몇명인지 조회하기
 		int count = userService.getCount();
 		logger.info("조회된 회원수 : " + count);
 		return mv;
