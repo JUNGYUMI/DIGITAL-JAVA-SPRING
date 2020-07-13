@@ -9,7 +9,7 @@
 	  	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 	    	<ul class="navbar-nav">
 		      	<li class="nav-item">
-		        	<a class="nav-link" href="<%=request.getContextPath()%>/board/">Link</a>
+		        	<a class="nav-link" href="<%=request.getContextPath()%>/board/list">게시판</a>
 		      	</li>
 		      	<li class="nav-item">
 		        	<a class="nav-link" href="<%=request.getContextPath()%>/board/signin">Sign in</a>
