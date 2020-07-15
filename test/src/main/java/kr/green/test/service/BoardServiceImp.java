@@ -1,6 +1,7 @@
 package kr.green.test.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,10 +49,14 @@ public class BoardServiceImp implements BoardService {
 	}
 
 	@Override
-	public void deleteBoard(BoardVo board) {
-		boardDao.deleteBoard(board);
-		
+	public void deleteBoard(Integer num) {
+		BoardVo board = boardDao.getBoard(num);
+		if(board == null)
+			return;
+		board.setIsDel('Y');
+		board.setDelDate(new Date());
+		boardDao.updateBoard(board);
 	}
-
+	
  }
 
