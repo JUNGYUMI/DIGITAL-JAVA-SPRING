@@ -21,7 +21,7 @@ public interface BoardDao {
 
 	void deleteBoard(Integer num);
 
-	int getTotalCount();
+	int getTotalCount(@Param("cri")Criteria cri);
 
 	
 

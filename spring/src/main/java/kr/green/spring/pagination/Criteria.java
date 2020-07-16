@@ -1,11 +1,15 @@
 package kr.green.spring.pagination;
 
 public class Criteria {
-	private int page;
-	private int perPageNum;
+	private int page;	// 현재 페이지
+	private int perPageNum; // 한 페이지당 컨텐츠 개수
+	private String search;
+	private int type;
 	public Criteria() {
-		this.page = 1;
-		this.perPageNum = 1;
+		page = 1;	// 1페이지부터
+		perPageNum = 3;	// 게시글 1개
+		search="";
+		type=0;
 	}
 	public int getPage() {
 		return page;
@@ -24,9 +28,25 @@ public class Criteria {
 			this.perPageNum = 10;
 		this.perPageNum = perPageNum;
 	}
+	public String getSearch() {
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
+	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		if(type < 0 || type > 3)
+			this.type = 0;
+		else
+			this.type = type;
+		this.type = type;
+	}
 	@Override
 	public String toString() {
-		return "Criteria [page=" + page + ", perPageNum=" + perPageNum + "]";
+		return "Criteria [page=" + page + ", perPageNum=" + perPageNum + ", search=" + search + ", type=" + type + "]";
 	}
 	public int getPageStart() {
 		return (page-1) * perPageNum;

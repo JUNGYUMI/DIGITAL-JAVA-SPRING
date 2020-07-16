@@ -7,7 +7,7 @@ public class PageMaker {
 	private int endPage;
 	private boolean prev;	// 이전 버튼 활성화 여부
 	private boolean next;	// 다음 버튼 활성화 여부
-	private int displayPageNum = 10; // 한번에 보여주는 페이지를 몇페이지 보여줄건지
+	private int displayPageNum = 3; // 한번에 보여주는 페이지를 몇페이지 보여줄건지
 	private Criteria criteria;	// 현재 페이지 정보
 	public void calcData() {
 		/* starPage와 endPage는 현재 페이지 정보인 criteria와 displayPageNum을 이용하여 계산
@@ -70,6 +70,9 @@ public class PageMaker {
 	}
 	public void setCriteria(Criteria criteria) {
 		this.criteria = criteria;
+	}
+	public int getLastEndPage() {
+		return (int)(Math.ceil(totalCount/(double)criteria.getPerPageNum()));
 	}
 	@Override
 	public String toString() {
