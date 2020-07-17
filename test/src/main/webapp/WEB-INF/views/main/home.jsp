@@ -6,16 +6,23 @@
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	로그인 화면  
+<h1 class="nav-login">
+	로그인
 </h1>
 	<form action="<%=request.getContextPath()%>/" method="post">
-		<input type="text" name="id" placeholder="아이디">
-		<input type="password" name="pw" placeholder="비밀번호">
-		<button>로그인</button>
+	  <div class="form-group">
+	    <label>ID:</label>
+	    <input type="text" class="form-control" placeholder="아이디를 입력하세요" name="id">
+	  </div>
+	  <div class="form-group">
+	    <label>Password:</label>
+	    <input type="password" class="form-control" placeholder="비밀번호를 입력하세요" name="pwd">
+	  </div>
+	  	<button class="home-login">로그인</button>
 	</form>
 	<input type="hidden" value="${isLogin}" id="isLogin">
 	<input type="hidden" value="${id}" id="id">
+
 	<script type="text/javascript">
 		$(function(){
 			var id = $('#id').val();

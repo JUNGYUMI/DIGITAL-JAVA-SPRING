@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.green.test.pagination.Criteria;
+import kr.green.test.pagination.PageMaker;
 import kr.green.test.service.BoardService;
 import kr.green.test.vo.BoardVo;
 
@@ -22,18 +24,20 @@ public class BoardController {
 	BoardService boardService;
 	
 	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
-	public ModelAndView boardListGet(ModelAndView mv) {
+	public ModelAndView boardListGet(ModelAndView mv, Criteria cri) {
 		mv.setViewName("/board/list");
-		ArrayList<BoardVo> list = boardService.getBoardList();
+		ArrayList<BoardVo> list = boardService.getBoardList(cri);
+		PageMaker pm = boardService.getPageMakerByBoard(cri); 
 		mv.addObject("list",list);
-		System.out.println(list);
+		mv.addObject("pm",pm);
 		return mv;
 	}
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
-	public ModelAndView boardDetailGet(ModelAndView mv, Integer num) {
+	public ModelAndView boardDetailGet(ModelAndView mv, Integer num, Criteria cri) {
 		mv.setViewName("/board/detail");
 		BoardVo board = boardService.view(num); //번호를 서비스한테 넘겨줌 - 서비스는 그에 맞는 번호를 
 		mv.addObject("board", board); //보드를 클라이언트로 보내줌
+		mv.addObject("cri", cri);
 		return mv;
 	}
 	@RequestMapping(value = "/board/register", method = RequestMethod.GET)
