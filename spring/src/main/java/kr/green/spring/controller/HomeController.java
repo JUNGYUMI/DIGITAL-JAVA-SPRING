@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.spring.service.UserService;
+import kr.green.spring.vo.UserVo;
 
 
 /**
@@ -27,17 +28,23 @@ public class HomeController {
 		mv.setViewName("/main/home");
 		return mv;
 	}
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public ModelAndView testGet(ModelAndView mv,String id, String pw) {
-		logger.info("URI:/test");
-		mv.setViewName("/main/test");
-		mv.addObject("title", "테스트");
-		logger.info("전송된 아이디 : " + id);
-		logger.info("전송된 비밀번호 : " + pw);
-		String userPw = userService.getPw(id);
-		logger.info("조회된 비밀번호 : " + userPw);
-		int count = userService.getCount();
-		logger.info("조회된 회원수 : " + count);
+	
+	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
+	public ModelAndView signUpGet(ModelAndView mv) {
+		logger.info("URI:/signUp:GET");
+		mv.setViewName("/main/signUp");
+		return mv;
+	}
+	@RequestMapping(value = "/signUp", method = RequestMethod.POST)
+	public ModelAndView signUpPost(ModelAndView mv, UserVo user) {
+		logger.info("URI:/signUp:POST");
+		if(userService.signUp(user)) {
+			mv.setViewName("redirect:/");
+		}else {
+			mv.setViewName("redirect:/signUp");
+			mv.addObject("user",user);
+		}
+		
 		return mv;
 	}
 }
