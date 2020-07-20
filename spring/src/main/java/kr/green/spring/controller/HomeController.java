@@ -1,5 +1,7 @@
 package kr.green.spring.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,17 @@ public class HomeController {
 		mv.setViewName("/main/home");
 		return mv;
 	}
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public ModelAndView homePost(ModelAndView mv, UserVo user) {
+		logger.info("URI:/");
+		UserVo dbUser = userService.isSignin(user);
+		if(dbUser != null) {
+			mv.setViewName("redirect:/board/list");
+			mv.addObject("user",dbUser);
+		}else
+			mv.setViewName("redirect:/");
+		return mv;
+	}
 	
 	@RequestMapping(value = "/signUp", method = RequestMethod.GET)
 	public ModelAndView signUpGet(ModelAndView mv) {
@@ -45,6 +58,13 @@ public class HomeController {
 			mv.addObject("user",user);
 		}
 		
+		return mv;
+	}
+	@RequestMapping(value = "/signout", method = RequestMethod.GET)
+	public ModelAndView signoutGet(ModelAndView mv, HttpServletRequest request) {
+		logger.info("URI:/signout:GET");
+		mv.setViewName("redirect:/");
+		request.getSession().removeAttribute("user");
 		return mv;
 	}
 }

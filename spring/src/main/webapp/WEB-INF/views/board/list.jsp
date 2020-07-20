@@ -61,8 +61,8 @@
 					    <option value="3" <c:if test="${pm.criteria.type==3}">selected</c:if>>내용</option>
 					  </select>
 					  <input type="text" class="form-control" placeholder="Search" name="search" value="${pm.criteria.search}">
-					  <div class="input-group-append">
-					  	<button class="btn btn-success" type="submit">Go</button>
+					<div class="input-group-append">
+					  <button class="btn btn-success" type="submit">Go</button>
 					</div>
 				</div>
 			</form>
