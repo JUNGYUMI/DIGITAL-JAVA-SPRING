@@ -1,5 +1,7 @@
 package kr.green.test.service;
 
+import javax.servlet.http.HttpServletRequest;
+
 import kr.green.test.vo.UserVo;
 
 public interface UserService {
@@ -9,5 +11,7 @@ public interface UserService {
 	UserVo isUser(UserVo inputUser);
 
 	boolean signup(UserVo user);
+
+	UserVo getUser(HttpServletRequest r);
 
 }

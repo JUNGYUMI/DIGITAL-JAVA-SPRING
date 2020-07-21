@@ -10,6 +10,7 @@ import kr.green.test.dao.BoardDao;
 import kr.green.test.pagination.Criteria;
 import kr.green.test.pagination.PageMaker;
 import kr.green.test.vo.BoardVo;
+import kr.green.test.vo.UserVo;
 
 @Service
 public class BoardServiceImp implements BoardService {
@@ -51,9 +52,11 @@ public class BoardServiceImp implements BoardService {
 	}
 
 	@Override
-	public void deleteBoard(Integer num) {
+	public void deleteBoard(Integer num, UserVo user) {
 		BoardVo board = boardDao.getBoard(num);
 		if(board == null)
+			return;
+		if(!board.getWriter().equals(user.getId()))
 			return;
 		board.setIsDel('Y');
 		board.setDelDate(new Date());

@@ -1,4 +1,6 @@
-package kr.green.test.service;
+			package kr.green.test.service;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -20,13 +22,13 @@ public class UserServiceImp implements UserService {
 	public UserVo getUser(String id) {
 		return userDao.getUser(id);
 	}
-
+	
 	@Override
 	public UserVo isUser(UserVo inputUser) {
 		/* 일반적으로 로그인 과정은 DB에서 아이디와 일치하는 정보를 가져 옴
 		 * 입력받은 아이디와 가져온 정보 중 비밀번호를 비교하여 로그인을 결정함 
 		 * => 쿼리로 비밀번호를 비교하지 않는다.
-		 * => 입력한 비밀번호는 실제 비밀번호이고, DB에 저장된 비밀 번호는
+		 * => 입력한 비밀번호는 실제 비밀번호이고, DB에 저장된 비밀번호는
 		 * 		암호화된 비밀번호이기 때문에 쿼리로 직접 비교할 수 없다. 
 		 * => 다른 이유로는 pw에 이상한 작업을 하면 로그인이 될 수 있기 때문에
 		 * 	  (블라인드 SQL 인젝션)
@@ -34,7 +36,7 @@ public class UserServiceImp implements UserService {
 		UserVo user = userDao.getUser(inputUser.getId());
 		if(user == null)
 			return null;
-		if(user.getPw().equals(inputUser.getPw())){
+		if(passwordEncoder.matches(inputUser.getPw(), user.getPw())){
 			return user;
 		}
 		return null;
@@ -66,4 +68,10 @@ public class UserServiceImp implements UserService {
 			userDao.insertUser(user);
 			return true;
 	}
+
+	@Override
+	public UserVo getUser(HttpServletRequest r) {
+		return (UserVo)r.getSession().getAttribute("user");
+	}
+	
 }

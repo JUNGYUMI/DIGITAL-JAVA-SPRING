@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import kr.green.test.pagination.Criteria;
 import kr.green.test.pagination.PageMaker;
 import kr.green.test.vo.BoardVo;
+import kr.green.test.vo.UserVo;
 
 public interface BoardService {
 
@@ -18,7 +19,7 @@ public interface BoardService {
 
 	void updateBoard(BoardVo board);
 
-	void deleteBoard(Integer num);
+	void deleteBoard(Integer num, UserVo userVo);
 
 	PageMaker getPageMakerByBoard(Criteria cri);
 

@@ -3,17 +3,16 @@
     pageEncoding="UTF-8"%>
     
 	<form action="<%=request.getContextPath()%>/board/register" method="POST">
+	
 		<div class="form-group">
 		  <label>게시글 제목</label>
-		  <input type="text" class="form-control" name="title" value="${board.title}">
+		  <input type="text" class="form-control" name="title" 	placeholder="제목">
 		</div>
-		<div class="form-group">
-		  <label>게시글 작성자</label>
-		  <input type="text" class="form-control" name="writer" value="${board.writer}">
-		</div>
+		
 		<div class="form-group">
 		  <label>내용</label><br>
-			<textarea rows="10" cols="155" name="content"></textarea>
+			<textarea rows="10" cols="155" name="content">${board.content}</textarea>
 		</div>
-			<button type=submit>전송</button>
+			<a href="<%=request.getContextPath()%>/board/list"><button class="btn btn-outline-success" type="button">목록</button></a>
+			<button type=submit>등록하기</button>
 	</form>
