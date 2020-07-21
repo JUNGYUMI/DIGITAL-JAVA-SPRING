@@ -81,7 +81,7 @@ public class BoardController {
         UserVo user = userService.getUser(request);
         if(num != null) {  
         board = boardService.getBoard(num);
-        	if(user != null || !board.getWriter().equals(user.getId()))
+        	if(user == null || !board.getWriter().equals(user.getId()))
         		mv.setViewName("redirect:/board/list");
         }
         mv.addObject("board", board);
