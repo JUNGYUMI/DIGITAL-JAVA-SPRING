@@ -23,6 +23,8 @@ public interface BoardDao {
 
 	int getTotalCount(@Param("cri")Criteria cri);
 
+	void insertLike(@Param("boardNum") int boardNum, @Param("id")String id);
+
 	
 
 	

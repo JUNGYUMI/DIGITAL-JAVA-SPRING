@@ -46,7 +46,9 @@
 	 		title = #{board.title},
 	 		content = #{board.content},
 	 		isDel = #{board.isDel},
-	 		delDate = #{board.delDate}
+	 		delDate = #{board.delDate},
+	 		board.like = 
+	 		 (select count(*) from spring.like where boardNum = #{board.num})
 	 	where
 	 		num = #{board.num}
 	</update>
@@ -69,5 +71,10 @@
     	<if test="cri.type==3">
     		 and content like concat('%',#{cri.search},'%')
     	</if>
-  </select>
+  	</select>
+  	<insert id ="insertLike">
+  		insert into 
+  			spring.like(id, boardNum)
+  			values(#{id},#{boardNum})
+  	</insert>
 </mapper>

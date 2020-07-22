@@ -22,7 +22,11 @@
     <div class="form-group">
       <label>조회수</label>
       <input type="text" class="form-control"  name="views" value="${board.views}" readonly>
-    	<button class="btn btn-outline-success cal-12">추천</button>
+    </div>
+    <div class="form-group">
+    <label>추천수</label>
+      <input type="text" class="form-control"  name="like" value="${board.like}" readonly>
+    	<button type="button" class="btn btn-outline-success cal-12" id="like">추천</button>
     </div>
     <div class="form-group">
       <label>내용</label>
@@ -38,3 +42,22 @@
 <c:if test="${user != null && user.id == board.writer}">
 	<a href="<%=request.getContextPath()%>/board/delete?num=${board.num}"><button>삭제</button></a>
 </c:if>
+<script>
+	$(function(){
+		$('#like').click(function(){
+			var num = $('input[name=num]').val();
+			$.ajax({
+		        async:true,	
+		        type:'POST',
+		        data:num,
+		        url:"<%=request.getContextPath()%>/board/like",
+		        dataType:"json",
+		        contentType:"application/json; charset=UTF-8",
+		        success : function(data){
+			        console.log(data)
+			        $('input[name=like]').val(data['like'])    
+		        }
+		    });
+		})
+	})
+</script>
