@@ -32,6 +32,11 @@
       <label>내용</label>
       <textarea class="form-control" rows="5" id="comment" name="content" readonly>${board.content}</textarea>
     </div>
+    <c:if test = "${board.file != null}">
+    <div>
+    	<a href="<%=request.getContextPath()%>/board/download?fileName=${board.file}">${board.oriFile}</a>
+    </div>
+    </c:if>
 </form>
 <c:if test="${user != null}">
 	<a href="<%=request.getContextPath()%>/board/register"><button>글쓰기</button></a>
