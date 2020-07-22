@@ -22,6 +22,7 @@
     <div class="form-group">
       <label>조회수</label>
       <input type="text" class="form-control"  name="views" value="${board.views}" readonly>
+    	<button class="btn btn-outline-success cal-12">추천</button>
     </div>
     <div class="form-group">
       <label>내용</label>
