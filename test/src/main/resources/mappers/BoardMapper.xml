@@ -42,6 +42,8 @@
   			isDel = #{board.isDel},
   			delDate = #{board.delDate},
   			views = #{board.views}
+  		
+  			
   		where
   			num = #{board.num}
   </update>
@@ -64,4 +66,16 @@
   			and content like concat('%',#{cri.search},'%')
   		</if>
   </select>
+  <select id="selectUp" resultType="int">
+  	select count(*) from up where boardNum = #{boardNum} and id = #{id}
+  </select>
+  <insert id="insertUp">
+  	insert into up(id,boardNum) values(#{id},#{boardNum})
+  </insert>
+  <update id="updateBoardByUp">
+  	update board 
+  		set
+  			up = (select count(*) from up where boardNum = #{num})
+  		where num = #{num}
+  </update>
 </mapper>
