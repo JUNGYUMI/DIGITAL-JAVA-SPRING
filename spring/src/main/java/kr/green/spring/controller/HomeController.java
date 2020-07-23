@@ -73,7 +73,7 @@ public class HomeController {
 		return mv;
 	}
 	@RequestMapping(value ="/idCheck")
-	@ResponseBody
+	@ResponseBody //매개변수 두개를 줘도 한개밖에 못붙임 
 	public Map<Object, Object> idcheck(@RequestBody String id){
 	    Map<Object, Object> map = new HashMap<Object, Object>();
 	    UserVo user = userService.getUser(id);
@@ -81,4 +81,34 @@ public class HomeController {
 	    map.put("check", check);
 	    return map;
 	}
+	@RequestMapping(value ="/test2")
+	@ResponseBody //매개변수 두개를 줘도 한개밖에 못붙임 
+	public Map<Object, Object> test2(@RequestBody TestVo test){
+	    Map<Object, Object> map = new HashMap<Object, Object>();
+	    System.out.println(test);
+	    map.put("res", "success!!");
+	    return map;
+	}
+}
+class TestVo{
+	private String id;
+	private int num;
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+	@Override
+	public String toString() {
+		return "TestVo [id=" + id + ", num=" + num + "]";
+	}
+	
 }
