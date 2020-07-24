@@ -1,25 +1,34 @@
 package kr.green.test.controller;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.test.pagination.Criteria;
 import kr.green.test.pagination.PageMaker;
 import kr.green.test.service.BoardService;
 import kr.green.test.service.UserService;
+import kr.green.test.utils.UploadFileUtils;
 import kr.green.test.vo.BoardVo;
 import kr.green.test.vo.UserVo;
 
@@ -32,6 +41,8 @@ public class BoardController {
 	BoardService boardService;
 	@Autowired
 	UserService userService;
+	
+	private String uploadPath = "D:\\JYM\\uploadfilestest";
 	
 	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
 	public ModelAndView boardListGet(ModelAndView mv, Criteria cri) {
@@ -56,12 +67,15 @@ public class BoardController {
 		return mv;
 	}
 	@RequestMapping(value = "/board/register", method = RequestMethod.POST)
-	public ModelAndView boardRegisterPost(ModelAndView mv, BoardVo board, HttpServletRequest r) {
+	public ModelAndView boardRegisterPost(ModelAndView mv, BoardVo board, HttpServletRequest r, MultipartFile file2)throws Exception {
 		mv.setViewName("redirect:/board/list");
 		board.setWriter(userService.getUser(r).getId());
+		String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(),file2.getBytes());
+		board.setFile(file);
 		boardService.insertBoard(board);
-		return mv;
+		return mv;	
 	}
+	
 	@RequestMapping(value = "/board/modify", method = RequestMethod.GET)
 	public ModelAndView boardModifyGet(ModelAndView mv, Integer num, HttpServletRequest r) {
 		mv.setViewName("/board/modify");
@@ -99,7 +113,36 @@ public class BoardController {
 	    	int up = boardService.updateUp(num, user.getId());
 	    	map.put("up",up);
 	    }
-	    
 	    return map;
 	}
+	@ResponseBody
+	@RequestMapping("/board/download")
+	public ResponseEntity<byte[]> downloadFile(String fileName)throws Exception{
+	    InputStream in = null;
+	    ResponseEntity<byte[]> entity = null;
+	    try{
+	    	// HttpHeader 객체 생성
+	        HttpHeaders headers = new HttpHeaders();	
+	        // 다운로드할 파일을 읽어옴
+	        in = new FileInputStream(uploadPath+fileName);	
+
+	        //다운로드 할 때 저장 할 파일명
+	        fileName = fileName.substring(fileName.indexOf("_")+1);	
+	        // 헤더에 컨텐츠 타입을 설정
+	        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);	
+	        // 헤더 정보를 추가
+	        headers.add("Content-Disposition",  "attachment; filename=\""
+        		//(파일을 UTF-8 바이트 타입으로 전환 => 인코딩 ISO-8859로 변환)
+				+ new String(fileName.getBytes("UTF-8"), "ISO-8859-1")+"\"");	
+	        //ResponseEntity 객체 생성, 전송할 파일, 헤더 정보, 헤더 상태 
+	        entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in),headers,HttpStatus.CREATED);
+	    }catch(Exception e) {
+	        e.printStackTrace();
+	        entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+	    }finally {
+	        in.close();
+	    }
+	    return entity;
+	}
+	
 }
