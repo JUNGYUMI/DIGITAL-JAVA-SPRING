@@ -19,5 +19,5 @@
         <label>파일</label>
         <input type="file" class="form-control" name="file2"/>
     </div>
-    <button>등록</button>
+    <button class="btn btn-outline-success">등록</button>
 </form>

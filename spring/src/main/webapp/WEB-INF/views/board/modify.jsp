@@ -38,9 +38,9 @@
     <div>
     	<input type="file" name="file2">
     </div>
-    <button>수정하기</button>
+    <button class="btn btn-outline-success">수정하기</button>
 </form>
-<a href="<%=request.getContextPath()%>/board/register"><button>글쓰기</button></a>
+<a href="<%=request.getContextPath()%>/board/register"><button class="btn btn-outline-success">글쓰기</button></a>
 <script>
 	$(function(){
 		$('#btn-file-close').click(function(){
