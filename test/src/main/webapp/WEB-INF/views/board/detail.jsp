@@ -39,11 +39,14 @@
 		<div>
 			${board.content}
 		</div>
+		
 		<c:if test="${board.file != null}">
 		<a href="<%=request.getContextPath()%>/board/download?fileName=${board.file}">${board.oriFile}</a><br>
 		</c:if>
+		
 		<span class="float-right btn-like"><i class="far fa-thumbs-up"></i></span>
 		<a href="<%=request.getContextPath()%>/board/list?page=${cri.page}&search=${cri.search}&type=${cri.type}"><button class="btn btn-outline-success">목록</button></a>
+			
 			<c:if test="${user != null }">
 				<a href="<%=request.getContextPath()%>/board/register"><button class="btn btn-outline-success">등록</button></a>
 				<c:if test="${user.id == board.writer}">
