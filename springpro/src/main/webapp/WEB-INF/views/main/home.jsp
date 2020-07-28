@@ -13,7 +13,6 @@
 	<div class="form-group">
 		<label>Password:</label>
 		<input type="password" class="form-control" placeholder="비밀번호를 입력하세요" name="pw">
-	<button class="home-login">로그인</button>
+	<button type="button" class="btn btn-primary btn-block">로그인</button>
 	</div>
 	</form>
-	

@@ -30,5 +30,16 @@ public class BoardController {
 		mv.setViewName("/board/list");
 	    return mv;
 	}
-	
+	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
+	public ModelAndView detailGet(ModelAndView mv) throws Exception{
+	    logger.info("URI:/board/detail");
+		mv.setViewName("/board/detail");
+	    return mv;
+	}
+	@RequestMapping(value = "/board/register", method = RequestMethod.GET)
+	public ModelAndView registesrGet(ModelAndView mv) throws Exception{
+	    logger.info("URI:/board/register");
+		mv.setViewName("/board/register");
+	    return mv;
+	}
 }
