@@ -36,4 +36,5 @@
 
 	<a href="<%=request.getContextPath()%>/board/list"><button class="btn btn-outline-secondary">목록</button></a>
 	<a href="<%=request.getContextPath()%>/board/register"><button class="btn btn-outline-secondary">새 글작성</button></a>
+	<a href="<%=request.getContextPath()%>/board/modify"><button class="btn btn-outline-secondary">수정</button></a>
 	

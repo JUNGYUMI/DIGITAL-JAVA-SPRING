@@ -9,4 +9,6 @@ import kr.green.springpro.vo.BoardVo;
 public interface BoardDao { 
 
 	public ArrayList<BoardVo> getBoardList();
+
+	public BoardVo getBoard(@Param("num")Integer num);
 }

@@ -7,6 +7,8 @@ import kr.green.springpro.vo.BoardVo;
 public interface BoardService {
 
 	public ArrayList<BoardVo> getBoardList();
+
+	public BoardVo getBoard(Integer num);
 	
 }
 

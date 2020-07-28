@@ -6,4 +6,7 @@
 	<select id="getBoardList" resultType="kr.green.springpro.vo.BoardVo">
 		select * from board where isDel = 'N'
 	</select>
+	<select id="getBoard" resultType="kr.green.springpro.vo.BoardVo">
+		select * from board where num = #{num}
+	</select>
 </mapper>

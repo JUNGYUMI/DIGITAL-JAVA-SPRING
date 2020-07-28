@@ -19,6 +19,11 @@ public class BoardServiceImp implements BoardService {
 		return boardDao.getBoardList();
 	}
 
+	@Override
+	public BoardVo getBoard(Integer num) {
+		return boardDao.getBoard(num);
+	}
+
 	
 
 }
