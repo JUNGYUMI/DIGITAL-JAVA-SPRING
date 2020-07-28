@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.nav-login{
+	margin-top: 5px;
+	text-align: center;
+	color: gray;
+}
+.home-login{
+	margin-top: 22px;
+	border: 1px solid gray;
+}
+.nav-table{
+	text-weight: bold;
+	margin-top: 5px;
+}
