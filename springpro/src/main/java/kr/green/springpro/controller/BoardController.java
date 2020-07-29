@@ -23,11 +23,11 @@ public class BoardController {
 	
 	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
 	public ModelAndView listGet(ModelAndView mv) throws Exception{
+		logger.info("URI:/board/list");
+		mv.setViewName("/board/list");
 		ArrayList<BoardVo> list;
 		list = boardService.getBoardList();
 		mv.addObject("list", list);
-	    logger.info("URI:/board/list");
-		mv.setViewName("/board/list");
 	    return mv;
 	}
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
@@ -60,4 +60,5 @@ public class BoardController {
 		mv.setViewName("/board/modify");
 	    return mv;
 	}
+	
 }

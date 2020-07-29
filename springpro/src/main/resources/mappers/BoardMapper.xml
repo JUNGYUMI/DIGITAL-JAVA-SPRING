@@ -5,6 +5,7 @@
 <mapper namespace="kr.green.springpro.dao.BoardDao">
 	<select id="getBoardList" resultType="kr.green.springpro.vo.BoardVo">
 		select * from board where isDel = 'N'
+		order by num desc
 	</select>
 	<select id="getBoard" resultType="kr.green.springpro.vo.BoardVo">
 		select * from board where num = #{num}

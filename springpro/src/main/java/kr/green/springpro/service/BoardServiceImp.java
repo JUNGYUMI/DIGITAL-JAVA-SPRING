@@ -12,7 +12,7 @@ import kr.green.springpro.vo.BoardVo;
 public class BoardServiceImp implements BoardService {
 	
 	@Autowired
-    BoardDao boardDao;
+    private BoardDao boardDao;
 
 	@Override
 	public ArrayList<BoardVo> getBoardList() {
