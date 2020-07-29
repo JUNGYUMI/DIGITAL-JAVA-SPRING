@@ -1,5 +1,6 @@
 package kr.green.springpro.vo;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -45,6 +46,15 @@ public class BoardVo {
 	}
 	public void setRegisterDate(Date registerDate) {
 		this.registerDate = registerDate;
+	}
+	public void setRegisterDate(String registerDate) {
+		SimpleDateFormat transFormat = 
+				new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		try {
+			this.registerDate = transFormat.parse(registerDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 	}
 	public char getIsDel() {
 		return isDel;

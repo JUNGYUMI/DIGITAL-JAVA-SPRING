@@ -67,6 +67,14 @@ public class BoardController {
 	    logger.info("URI: redirect:/board/modify");
 		mv.setViewName("redirect:/board/list");
 		boardService.updateBoard(board);
+		System.out.println(board);
+	    return mv;
+	}
+	@RequestMapping(value = "/board/delete", method = RequestMethod.GET)
+	public ModelAndView deleteGet(ModelAndView mv,Integer num) throws Exception{
+	    logger.info("URI:/board/delete");
+		mv.setViewName("redirect:/board/list");
+		boardService.deleteBoard(num);
 	    return mv;
 	}
 }

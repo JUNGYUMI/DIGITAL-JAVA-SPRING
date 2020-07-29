@@ -13,6 +13,8 @@ public interface BoardService {
 	public void registerBoard(BoardVo board);
 
 	void updateBoard(BoardVo board);
+
+	void deleteBoard(Integer num);
 	
 }
 

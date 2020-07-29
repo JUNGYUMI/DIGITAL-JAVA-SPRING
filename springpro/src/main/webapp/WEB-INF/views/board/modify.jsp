@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  
-<form method="post" action="<%=request.getContextPath()%>/board/modify" enctype="multipart/form-data">
+<form method="post" action="<%=request.getContextPath()%>/board/modify" >
 	<div class="form-group">
       <label>게시글 번호</label>
       <input type="text" class="form-control"  name="num" value="${board.num}" readonly>

@@ -20,9 +20,11 @@
 		update board
 			set
 				title = #{board.title},
-				content = #{board.content}
+				content = #{board.content},
+				isDel = #{board.isDel},
+				delDate = #{board.delDate}
 			where
-				num = #{board.num}
-				
+				num = #{board.num}	
 	</update>
+	
 </mapper>
