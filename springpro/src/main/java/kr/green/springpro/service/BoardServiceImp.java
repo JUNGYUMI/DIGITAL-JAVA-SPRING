@@ -30,6 +30,12 @@ public class BoardServiceImp implements BoardService {
 		
 	}
 
+	@Override
+	public void updateBoard(BoardVo board) {
+		board.setIsDel('N');
+		boardDao.updateBoard(board);
+	}
+
 	
 
 }

@@ -55,10 +55,18 @@ public class BoardController {
 	    return mv;
 	}
 	@RequestMapping(value = "/board/modify", method = RequestMethod.GET)
-	public ModelAndView modifyGet(ModelAndView mv) throws Exception{
+	public ModelAndView modifyGet(ModelAndView mv, Integer num) throws Exception{
 	    logger.info("URI:/board/modify");
 		mv.setViewName("/board/modify");
+		BoardVo board = boardService.getBoard(num);
+		mv.addObject("board",board);
 	    return mv;
 	}
-	
+	@RequestMapping(value = "/board/modify", method = RequestMethod.POST)
+	public ModelAndView modifyPOST(ModelAndView mv, BoardVo board) throws Exception{
+	    logger.info("URI: redirect:/board/modify");
+		mv.setViewName("redirect:/board/list");
+		boardService.updateBoard(board);
+	    return mv;
+	}
 }

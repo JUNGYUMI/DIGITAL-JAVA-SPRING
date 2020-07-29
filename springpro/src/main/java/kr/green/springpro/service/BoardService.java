@@ -11,6 +11,8 @@ public interface BoardService {
 	BoardVo getBoard(Integer num);
 
 	public void registerBoard(BoardVo board);
+
+	void updateBoard(BoardVo board);
 	
 }
 
