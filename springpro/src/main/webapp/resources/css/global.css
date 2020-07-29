@@ -5,14 +5,14 @@
 	text-align: center;
 	color: gray;
 }
-.home-login{
-	margin-top: 22px;
-	border: 1px solid gray;
-}
 .nav-table{
 	text-weight: bold;
 	margin-top: 5px;
 }
 .btn-primary{
 	margin-top: 30 px;
+}
+.btn-outline-secondary{
+	float: left;
+	margin-right: 5px;
 }

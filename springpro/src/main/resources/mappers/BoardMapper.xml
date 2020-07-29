@@ -9,4 +9,10 @@
 	<select id="getBoard" resultType="kr.green.springpro.vo.BoardVo">
 		select * from board where num = #{num}
 	</select>
+	
+	<insert id="registerBoard">
+		insert into 
+			board(title, writer, content)
+			values(#{board.title}, #{board.writer}, #{board.content})
+	</insert>
 </mapper>

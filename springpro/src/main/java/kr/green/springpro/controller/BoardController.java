@@ -48,9 +48,10 @@ public class BoardController {
 	    return mv;
 	}
 	@RequestMapping(value = "/board/register", method = RequestMethod.POST)
-	public ModelAndView registesrPOST(ModelAndView mv, BoardService boardService) throws Exception{
+	public ModelAndView registesrPOST(ModelAndView mv, BoardVo board) throws Exception{
 	    logger.info("URI:redirect:/board/list");
 		mv.setViewName("redirect:/board/list");
+		boardService.registerBoard(board);
 	    return mv;
 	}
 	@RequestMapping(value = "/board/modify", method = RequestMethod.GET)
