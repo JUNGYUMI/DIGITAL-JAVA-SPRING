@@ -60,10 +60,11 @@
 	</beans:bean>
 	
 	<!-- servlet-context.xml에 추가 -->
-<beans:bean id="uploadPath" class="java.lang.String">
-    <!--
-	<beans:constructor-arg value="서버에 저장할 경로"></beans:constructor-arg>
-	-->
+	<beans:bean id="uploadPath" class="java.lang.String">
+	    <!--
+		<beans:constructor-arg value="서버에 저장할 경로"></beans:constructor-arg>
+		-->
 	    <beans:constructor-arg value="D:\\JYM\\uploadfiles"></beans:constructor-arg>
 	</beans:bean>
+	
 </beans:beans>
