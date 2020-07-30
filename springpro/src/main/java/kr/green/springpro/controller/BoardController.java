@@ -38,6 +38,10 @@ public class BoardController {
 		if(num != null) {
 			board = boardService.getBoard(num);
 			mv.addObject("board",board);
+			if(board != null) {
+				boardService.increaseViews(num);
+				board.setViews(board.getViews()+1);
+			}
 		}
 	    return mv;
 	}
