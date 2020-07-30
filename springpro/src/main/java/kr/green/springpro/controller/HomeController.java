@@ -9,11 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.springpro.service.UserService;
+import kr.green.springpro.vo.UserVo;
 
 @Controller
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView homeGet(ModelAndView mv) throws Exception{
@@ -22,4 +25,10 @@ public class HomeController {
 	    return mv;
 	}
 	
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	public ModelAndView signupGet(ModelAndView mv) throws Exception{
+	    logger.info("URI:/main/signup");
+		mv.setViewName("/main/signup");
+	    return mv;
+	}
 }

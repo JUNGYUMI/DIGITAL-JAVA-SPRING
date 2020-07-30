@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.green.springpro.pagination.Criteria;
+import kr.green.springpro.pagination.PageMaker;
 import kr.green.springpro.service.BoardService;
 import kr.green.springpro.vo.BoardVo;
 
@@ -22,16 +24,19 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
-	public ModelAndView listGet(ModelAndView mv) throws Exception{
+	public ModelAndView listGet(ModelAndView mv, Criteria cri) throws Exception{
 		logger.info("URI:/board/list");
 		mv.setViewName("/board/list");
+		PageMaker pm = boardService.getPageMaker(cri);
 		ArrayList<BoardVo> list;
-		list = boardService.getBoardList();
+		list = boardService.getBoardList(cri);
 		mv.addObject("list", list);
+		mv.addObject("pm",pm);
+		System.out.println(cri);
 	    return mv;
 	}
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
-	public ModelAndView detailGet(ModelAndView mv, Integer num) throws Exception{
+	public ModelAndView detailGet(ModelAndView mv, Integer num, Criteria cri) throws Exception{
 	    logger.info("URI:/board/detail");
 		mv.setViewName("/board/detail");
 		BoardVo board = null;
@@ -43,6 +48,7 @@ public class BoardController {
 				board.setViews(board.getViews()+1);
 			}
 		}
+		mv.addObject("cri",cri);
 	    return mv;
 	}
 	@RequestMapping(value = "/board/register", method = RequestMethod.GET)
