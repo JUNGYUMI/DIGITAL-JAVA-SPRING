@@ -31,4 +31,15 @@ public class HomeController {
 		mv.setViewName("/main/signup");
 	    return mv;
 	}
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+	public ModelAndView signupPoset(ModelAndView mv, UserVo user) throws Exception{
+	    logger.info("URI: signup:POST");
+		if(userService.signup(user)) {
+			mv.setViewName("redirect:/");
+		}else {
+			mv.setViewName("redirect:/signup");
+			mv.addObject("user",user);
+		}
+	    return mv;
+	}
 }
