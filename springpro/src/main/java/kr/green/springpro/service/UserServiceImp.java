@@ -37,10 +37,6 @@ public class UserServiceImp implements UserService {
 		userDao.insertUser(user); 
 		return true; 
 	}
-<<<<<<< Updated upstream
-=======
-
-	
 	@Override
 	public UserVo getUser(HttpServletRequest request) {
 		return (UserVo)request.getSession().getAttribute("user"); 
@@ -54,10 +50,4 @@ public class UserServiceImp implements UserService {
 			return dbUser;
 		return null;
 	}
->>>>>>> Stashed changes
-
-
-	
-
-	
 }

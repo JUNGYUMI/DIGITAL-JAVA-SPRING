@@ -55,8 +55,7 @@ public class HomeController {
 		}
 	    return mv;
 	}
-<<<<<<< Updated upstream
-=======
+
 	@RequestMapping(value = "/signout", method = RequestMethod.GET)
 	public ModelAndView signoutGet(ModelAndView mv, HttpServletRequest request) {
 		logger.info("URI:/signout:GET");
@@ -64,6 +63,5 @@ public class HomeController {
 		request.getSession().removeAttribute("user");
 		return mv;
 	}
-	
->>>>>>> Stashed changes
 }
+
