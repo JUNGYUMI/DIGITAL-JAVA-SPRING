@@ -12,9 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-/**
- * Handles requests for the application home page.
- */
+
 @Controller
 public class HomeController {
 	
@@ -35,6 +33,60 @@ public class HomeController {
 		public ModelAndView signupGet(ModelAndView mv) {
 			logger.info("URI:/main/signup");
 			mv.setViewName("/main/signup");
+			return mv;
+		}
+		@RequestMapping(value = "/introduce", method = RequestMethod.GET)
+		public ModelAndView introduceGet(ModelAndView mv) {
+			logger.info("URI:/main/introduce");
+			mv.setViewName("/main/introduce");
+			return mv;
+		}
+		@RequestMapping(value = "/location", method = RequestMethod.GET)
+		public ModelAndView locationGet(ModelAndView mv) {
+			logger.info("URI:/main/location");
+			mv.setViewName("/main/location");
+			return mv;
+		}
+		@RequestMapping(value = "/drink_menu", method = RequestMethod.GET)
+		public ModelAndView drink_menuGet(ModelAndView mv) {
+			logger.info("URI:/main/drink_menu");
+			mv.setViewName("/main/drink_menu");
+			return mv;
+		}
+		@RequestMapping(value = "/dessert_menu", method = RequestMethod.GET)
+		public ModelAndView dessert_menuGet(ModelAndView mv) {
+			logger.info("URI:/main/dessert_menu");
+			mv.setViewName("/main/dessert_menu");
+			return mv;
+		}
+		@RequestMapping(value = "/online_order", method = RequestMethod.GET)
+		public ModelAndView online_orderGet(ModelAndView mv) {
+			logger.info("URI:/main/online_order");
+			mv.setViewName("/main/online_order");
+			return mv;
+		}
+		@RequestMapping(value = "/takeout_order", method = RequestMethod.GET)
+		public ModelAndView takeout_orderGet(ModelAndView mv) {
+			logger.info("URI:/main/takeout_order");
+			mv.setViewName("/main/takeout_order");
+			return mv;
+		}
+		@RequestMapping(value = "/notice_list", method = RequestMethod.GET)
+		public ModelAndView notice_listGet(ModelAndView mv) {
+			logger.info("URI:/main/notice_list");
+			mv.setViewName("/main/notice_list");
+			return mv;
+		}
+		@RequestMapping(value = "/customer_list", method = RequestMethod.GET)
+		public ModelAndView customer_listGet(ModelAndView mv) {
+			logger.info("URI:/main/customer_list");
+			mv.setViewName("/main/customer_list");
+			return mv;
+		}
+		@RequestMapping(value = "/membership", method = RequestMethod.GET)
+		public ModelAndView membershipGet(ModelAndView mv) {
+			logger.info("URI:/main/membership");
+			mv.setViewName("/main/membership");
 			return mv;
 		}
 }
