@@ -25,7 +25,7 @@
             width: 160px;
             float: right;
       }
-      .box-home, .box-signin, .box-signup{
+      .box-home, .box-signin, .box-sign-up{
           width: 60px;
           height: 30px;
           text-align: center;
@@ -441,10 +441,10 @@
             width: 850px;
         }
         #sel1{
-            width: 276px;
+            width: calc(100% - 75%);
         }
         #search{
-            width: 498px;
+            width: calc(100% - 35%);
         }
         .table{
             margin-top: 20px;

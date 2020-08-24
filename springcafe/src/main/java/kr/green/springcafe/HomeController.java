@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.green.springcafe.service.CommunityService;
+import kr.green.springcafe.vo.MemberVo;
+
 @Controller
 public class HomeController {
+	private CommunityService communityService; 
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 		@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -72,13 +76,16 @@ public class HomeController {
 			return mv;
 		}
 		@RequestMapping(value = "/notice_list", method = RequestMethod.GET)
-		public ModelAndView notice_listGet(ModelAndView mv) {
+		public ModelAndView noticeListGet(ModelAndView mv) {
 			logger.info("URI:/main/notice_list");
 			mv.setViewName("/main/notice_list");
+			ArrayList<MemberVo> list; 
+			list = communityService.getBoardList(); 
+			mv.addObject("list",list); 
 			return mv;
 		}
 		@RequestMapping(value = "/customer_list", method = RequestMethod.GET)
-		public ModelAndView customer_listGet(ModelAndView mv) {
+		public ModelAndView customerListGet(ModelAndView mv) {
 			logger.info("URI:/main/customer_list");
 			mv.setViewName("/main/customer_list");
 			return mv;
