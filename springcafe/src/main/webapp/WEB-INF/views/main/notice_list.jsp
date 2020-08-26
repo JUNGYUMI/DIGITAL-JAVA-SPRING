@@ -11,17 +11,19 @@
 				<th>제목</th>
 				<th>작성자</th>
 				<th>작성일</th>
-				<th>조회수</th>
+				
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-				<td>1</td>
-				<td>제목1</td>
-				<td>작성자1</td>
-				<td>작성일1</td>
-				<td>조회수1</td>
+				<c:forEach var="community" items="${notice_list}">
+					<tr>
+					<td>${community.com_num}</td>
+					<td>${community.com_title}</td>
+					<td>${community.com_writer}</td>
+					<td>${community.com_date}</td>
+
 				</tr> 
+				</c:forEach>
 			</tbody>
 		</table>
 				<ul class="pagination justify-content-center">

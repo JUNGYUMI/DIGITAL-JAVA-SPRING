@@ -7,6 +7,7 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.springcafe.service.CommunityService;
+import kr.green.springcafe.vo.CommunityVo;
 import kr.green.springcafe.vo.MemberVo;
 
 @Controller
 public class HomeController {
+	@Autowired
 	private CommunityService communityService; 
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -79,9 +82,9 @@ public class HomeController {
 		public ModelAndView noticeListGet(ModelAndView mv) {
 			logger.info("URI:/main/notice_list");
 			mv.setViewName("/main/notice_list");
-			ArrayList<MemberVo> list; 
+			ArrayList<CommunityVo> list; 
 			list = communityService.getBoardList(); 
-			mv.addObject("list",list); 
+			mv.addObject("notice_list",list); 
 			return mv;
 		}
 		@RequestMapping(value = "/customer_list", method = RequestMethod.GET)
@@ -94,6 +97,13 @@ public class HomeController {
 		public ModelAndView membershipGet(ModelAndView mv) {
 			logger.info("URI:/main/membership");
 			mv.setViewName("/main/membership");
+			return mv;
+		}
+		@RequestMapping(value = "/membership", method = RequestMethod.POST)
+		public ModelAndView membershipPost(ModelAndView mv, CommunityVo community) {
+			logger.info("URI: redirect:/");
+			mv.setViewName("redirect:/");
+			communityService.insertCommunity(community); 
 			return mv;
 		}
 }

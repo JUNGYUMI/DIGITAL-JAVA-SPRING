@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-	<form>
+	<form action="<%=request.getContextPath()%>/main/membership" method="POST">
 		<div class="container-content">
 	        <div class="container-membership-body">
 	            <div class="container-box-word">
@@ -23,8 +23,8 @@
 	            <div class="container-box-word">
 	                <p class="container-member-title">점포 소유 여부</p>
 	                <div class="container-membership get-store">
-	                    <input type="radio" name="get-store" value="yes" id="yes"> <label for="yes">예</label>
-	                    <input type="radio" name="get-store" value="no" id="no"> <label for="no">아니오</label>
+	                    <input type="radio" name="get-store" value="yes" id="yes"> <label for="Y">예</label>
+	                    <input type="radio" name="get-store" value="no" id="no"> <label for="N">아니오</label>
 	                </div>
 	            </div>
 	            <div class="container-box-word">
