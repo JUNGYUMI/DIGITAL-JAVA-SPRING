@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.green.springcafe.pagination.Criteria;
+import kr.green.springcafe.pagination.PageMaker;
 import kr.green.springcafe.service.CommunityService;
 import kr.green.springcafe.vo.CommunityVo;
 import kr.green.springcafe.vo.MemberVo;
@@ -79,12 +81,13 @@ public class HomeController {
 			return mv;
 		}
 		@RequestMapping(value = "/notice_list", method = RequestMethod.GET)
-		public ModelAndView noticeListGet(ModelAndView mv) {
+		public ModelAndView noticeListGet(ModelAndView mv, Criteria cri) {
 			logger.info("URI:/main/notice_list");
 			mv.setViewName("/main/notice_list");
+			PageMaker pm = communityService.getPageMaker(cri);
 			ArrayList<CommunityVo> list; 
-			list = communityService.getBoardList(); 
-			mv.addObject("notice_list",list); 
+			list = communityService.getBoardList(cri); 
+			mv.addObject("pm",pm); 
 			return mv;
 		}
 		@RequestMapping(value = "/customer_list", method = RequestMethod.GET)
