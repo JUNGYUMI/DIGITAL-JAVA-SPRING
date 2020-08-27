@@ -14,4 +14,5 @@ public interface CommunityDao {
 	void insertCommunity(@Param("community")CommunityVo community);
 
 	int getTotalCount();
+
 }

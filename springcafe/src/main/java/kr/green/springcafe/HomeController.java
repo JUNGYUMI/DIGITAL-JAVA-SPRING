@@ -87,6 +87,7 @@ public class HomeController {
 			PageMaker pm = communityService.getPageMaker(cri);
 			ArrayList<CommunityVo> list; 
 			list = communityService.getBoardList(cri); 
+			mv.addObject("notice_list",list); 
 			mv.addObject("pm",pm); 
 			return mv;
 		}

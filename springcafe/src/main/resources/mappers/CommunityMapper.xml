@@ -6,8 +6,12 @@
 
   <select id="getBoardList" resultType="kr.green.springcafe.vo.CommunityVo"> 
     select * from community
-    
+    	order by com_num
+    	limit #{cri.pageStart},#{cri.perPageNum} 
   </select>
- 
   
+   <select id="getTotalCount" resultType="int"> 
+    select count(*) 
+    	from community 
+  </select> 
 </mapper>

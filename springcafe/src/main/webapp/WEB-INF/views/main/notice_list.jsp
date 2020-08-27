@@ -27,16 +27,31 @@
 			</tbody>
 		</table>
 				<ul class="pagination justify-content-center">
-				    <li class="page-item">
-					  	<a class="page-link" href="#">
-	                          <i class="fas fa-angle-double-left"></i>
-	                    </a>
-	                </li>		  	
-					<li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-left"></i></a></li>
-					<li class="page-item"><a class="page-link" href="#">현재페이지</a></li>
-					<li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
-					<li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-double-right"></i></a></li>
-				</ul>
+			  	<c:if test="${pm.prev}">
+				  <li class="page-item">
+				  	<a class="page-link" href="<%=request.getContextPath()%>/notice_list?page=${pm.startPage-1}">
+				  		<i class="fas fa-angle-double-left"></i></a></li>
+				</c:if>
+				
+			  	<c:if test="${pm.criteria.page != 1}">
+				  <li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/notice_list?page=${pm.criteria.page-1}"><i class="fas fa-chevron-left"></i></a></li>
+				</c:if>
+				
+				<c:forEach var="index" begin="${pm.startPage}" end="${pm.endPage}">
+				  <li class="page-item <c:if test="${index == pm.criteria.page}">active</c:if>"><a class="page-link" href="<%=request.getContextPath()%>/notice_list?page=${index}">${index}</a></li>
+				</c:forEach>
+				
+				<c:if test="${pm.criteria.page != lastEndPage}">
+				  <li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/notice_list?page=${pm.criteria.page+1}"><i class="fas fa-chevron-right"></i></a></li>
+				</c:if>
+				
+				<c:if test="${pm.next}">
+				  <li class="page-item">
+				  	<a class="page-link" href="<%=request.getContextPath()%>/notice_list?page=${pm.endPage+1}">
+				  		<i class="fas fa-angle-double-right"></i></a></li>
+				</c:if>
+			</ul>
+				
 				<form>
 					<div class="input-group mb-3">
 						<select class="form-control" id="sel1" name="type">
