@@ -97,6 +97,18 @@ public class HomeController {
 			} 
 			return mv; 
 		} 
+		@RequestMapping(value = "/register", method = RequestMethod.GET)		
+		public ModelAndView registerBoardGet(ModelAndView mv) {
+			logger.info("URI:/main/register");
+			mv.setViewName("/main/register");
+			return mv;
+		}
+		@RequestMapping(value = "/register", method = RequestMethod.POST)
+		public ModelAndView registerBoardPost(ModelAndView mv) {
+			logger.info("URI:/main/notice_list");
+			mv.setViewName("/main/notice_list");
+			return mv;
+		}
 		@RequestMapping(value = "/customer_list", method = RequestMethod.GET)
 		public ModelAndView customerListGet(ModelAndView mv) {
 			logger.info("URI:/main/customer_list");
