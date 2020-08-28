@@ -7,7 +7,7 @@ public class PageMaker {
 	private int endPage;
 	private boolean prev;
 	private boolean next;
-	private int displayPageNum = 10; 
+	private int displayPageNum = 3; 
 	private Criteria criteria;
 	
 	public void calcData() {
@@ -69,6 +69,10 @@ public class PageMaker {
 	public void setCriteria(Criteria criteria) {
 		this.criteria = criteria;
 	}
+	public int getLastEndPage(){
+		return (int)(Math.ceil(totalCount/(double)criteria.getPerPageNum()));
+	}
+	
 	@Override
 	public String toString() {
 		return "PageMaker [totalCount=" + totalCount + ", startPage=" + startPage + ", endPage=" + endPage + ", prev="

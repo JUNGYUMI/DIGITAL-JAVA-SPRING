@@ -15,4 +15,6 @@ public interface CommunityDao {
 
 	int getTotalCount();
 
+	CommunityVo getBoard(@Param("num")Integer num);
+
 }

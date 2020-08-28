@@ -18,7 +18,7 @@
 				<c:forEach var="community" items="${notice_list}">
 					<tr>
 					<td>${community.com_num}</td>
-					<td>${community.com_title}</td>
+					<td><a href="<%=request.getContextPath()%>/detail?num=${community.com_num}">${community.com_title}</a></td>
 					<td>${community.com_writer}</td>
 					<td>${community.com_date}</td>
 

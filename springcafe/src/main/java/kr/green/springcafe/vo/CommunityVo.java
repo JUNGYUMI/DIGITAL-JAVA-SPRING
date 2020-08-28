@@ -9,7 +9,16 @@ public class CommunityVo {
 	private String mem_id;
 	private String com_reply;
 	private String com_type;
+	private int com_views;
 	
+	
+	
+	public int getCom_views() {
+		return com_views;
+	}
+	public void setCom_views(int com_views) {
+		this.com_views = com_views;
+	}
 	public int getCom_num() {
 		return com_num;
 	}

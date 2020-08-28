@@ -10,6 +10,10 @@
     	limit #{cri.pageStart},#{cri.perPageNum} 
   </select>
   
+  <select id="getBoard" resultType="kr.green.springcafe.vo.CommunityVo"> 
+    select * from community where com_num = #{num} 
+  </select>
+  
    <select id="getTotalCount" resultType="int"> 
     select count(*) 
     	from community 

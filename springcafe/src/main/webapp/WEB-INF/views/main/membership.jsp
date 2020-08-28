@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-	<form action="<%=request.getContextPath()%>/main/membership" method="POST">
+	<form action="<%=request.getContextPath()%>/membership" method="POST">
 		<div class="container-content">
 	        <div class="container-membership-body">
 	            <div class="container-box-word">

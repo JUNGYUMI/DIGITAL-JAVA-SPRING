@@ -1,15 +1,11 @@
 package kr.green.springcafe;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,7 +14,6 @@ import kr.green.springcafe.pagination.Criteria;
 import kr.green.springcafe.pagination.PageMaker;
 import kr.green.springcafe.service.CommunityService;
 import kr.green.springcafe.vo.CommunityVo;
-import kr.green.springcafe.vo.MemberVo;
 
 @Controller
 public class HomeController {
@@ -91,6 +86,17 @@ public class HomeController {
 			mv.addObject("pm",pm); 
 			return mv;
 		}
+		@RequestMapping(value = "/detail", method = RequestMethod.GET)
+		public ModelAndView boardDetailGet(ModelAndView mv, Integer num) { 
+			logger.info("URI:/main/detail"); 
+			mv.setViewName("/main/detail"); 
+			CommunityVo community = null; 
+			if(num != null) { 
+				community = communityService.getBoard(num); 
+				mv.addObject("community", community);  
+			} 
+			return mv; 
+		} 
 		@RequestMapping(value = "/customer_list", method = RequestMethod.GET)
 		public ModelAndView customerListGet(ModelAndView mv) {
 			logger.info("URI:/main/customer_list");

@@ -2,15 +2,34 @@ package kr.green.springcafe.pagination;
 
 public class Criteria {
 		
-		private int page; 
-		
+		private int page;  
 		private int perPageNum;
+		private String search;
+		private int type;
 		
 		public Criteria() {
 			this.page = 1;
 			this.perPageNum = 1;
+			this.search = "";
+			this.type = 0;
 		}
 		
+		public String getSearch() {
+			return search;
+		}
+
+		public void setSearch(String search) {
+			this.search = search;
+		}
+
+		public int getType() {
+			return type;
+		}
+
+		public void setType(int type) {
+			this.type = type;
+		}
+
 		public int getPage() {
 			return page;
 		}
@@ -33,9 +52,10 @@ public class Criteria {
 		}
 		@Override
 		public String toString() {
-			return "Criteria [page=" + page + ", perPageNum=" + perPageNum + "]";
+			return "Criteria [page=" + page + ", perPageNum=" + perPageNum + ", search=" + search + ", type=" + type
+					+ "]";
 		}
-		
+
 		public int getPageStart() {
 			return (this.page -1) * perPageNum;
 		}

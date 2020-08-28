@@ -34,6 +34,11 @@ public class CommunityServiceImp implements CommunityService {
 		pm.setTotalCount(totalCount);  
 		return pm; 
 	}
+
+	@Override
+	public CommunityVo getBoard(Integer num) {
+		return communityDao.getBoard(num);
+	}
 	
 }
 

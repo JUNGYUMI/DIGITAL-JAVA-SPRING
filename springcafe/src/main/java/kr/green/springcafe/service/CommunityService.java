@@ -14,6 +14,8 @@ public interface CommunityService {
 
 	PageMaker getPageMaker(Criteria cri);
 
+	CommunityVo getBoard(Integer num);
+
 
 	
 }
