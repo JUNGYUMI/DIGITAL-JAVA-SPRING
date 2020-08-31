@@ -2,6 +2,9 @@ package kr.green.springcafe;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,20 +16,39 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.green.springcafe.pagination.Criteria;
 import kr.green.springcafe.pagination.PageMaker;
 import kr.green.springcafe.service.CommunityService;
+import kr.green.springcafe.service.MemberService;
 import kr.green.springcafe.vo.CommunityVo;
+import kr.green.springcafe.vo.MemberVo;
 
 @Controller
 public class HomeController {
 	@Autowired
 	private CommunityService communityService; 
 	
+	@Autowired
+	private MemberService memberService;
+	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
 		@RequestMapping(value = "/", method = RequestMethod.GET)
 		public ModelAndView boardListGet(ModelAndView mv) {
 			logger.info("URI:/main/home");
 			mv.setViewName("/main/home");
 			return mv;
 		}
+		
+		@RequestMapping(value = "/signup", method = RequestMethod.POST)
+		public ModelAndView signupPost(ModelAndView mv, MemberVo user) throws Exception{
+		    logger.info("URI: signup:POST");
+			if(memberService.signup(user)) {
+				mv.setViewName("redirect:/");
+			}else {
+				mv.setViewName("redirect:/signup");
+				mv.addObject("user",user);
+			}
+		    return mv;
+		}
+		
 		@RequestMapping(value = "/signin", method = RequestMethod.GET)
 		public ModelAndView signinGet(ModelAndView mv) {
 			logger.info("URI:/main/signin");
@@ -128,6 +150,9 @@ public class HomeController {
 			communityService.insertCommunity(community); 
 			return mv;
 		}
+		
+		
+		
 }
 
 

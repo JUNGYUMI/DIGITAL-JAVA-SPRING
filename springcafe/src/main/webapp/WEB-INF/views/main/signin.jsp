@@ -19,8 +19,9 @@
             <div class="box-password"> 
                 <input type="password" name="pwd" id="pwd" placeholder="비밀번호">
             </div>
-            <button class="btn-submit">로그인</button>  
-        </div>      
+            <button type="submit" class="btn-submit">로그인</button>  
+        </div>  
+            
         <!--비번찾기, 회원가입-->
         <div class="container-search">
             <a href="#" class="link-search">비밀번호 찾기</a>

@@ -5,9 +5,10 @@ public class MemberVo {
 	private String mem_pw;
 	private String mem_phone;
 	private String mem_gender;
-	private String email;
+	private String mem_email;
 	private String withdraw;
 	private String type;
+	
 	public String getMem_id() {
 		return mem_id;
 	}
@@ -32,11 +33,12 @@ public class MemberVo {
 	public void setMem_gender(String mem_gender) {
 		this.mem_gender = mem_gender;
 	}
-	public String getEmail() {
-		return email;
+	
+	public String getMem_email() {
+		return mem_email;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMem_email(String mem_email) {
+		this.mem_email = mem_email;
 	}
 	public String getWithdraw() {
 		return withdraw;
@@ -54,7 +56,7 @@ public class MemberVo {
 	@Override
 	public String toString() {
 		return "MemberVo [mem_id=" + mem_id + ", mem_pw=" + mem_pw + ", mem_phone=" + mem_phone + ", mem_gender="
-				+ mem_gender + ", email=" + email + ", withdraw=" + withdraw + ", type=" + type + "]";
+				+ mem_gender + ", email=" + mem_email + ", withdraw=" + withdraw + ", type=" + type + "]";
 	}
 	
 }

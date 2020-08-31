@@ -6,4 +6,15 @@
   <select id="getEmail" resultType="String">
     select mem_email from member where id = #{mem_id}
   </select>
+  
+  <select id="getUser" resultType="kr.green.springcafe.vo.MemberVo"> 
+  	select * from member where mem_id = #{mem_id} 
+	</select>
+	 
+	<insert id="insertUser"> 
+		insert into  
+			member(mem_id, mem_pw, mem_email, mem_gender) 
+			values(#{member.mem_id}, #{member.mem_pw}, #{member.mem_email}, #{member.mem_gender}) 
+	</insert>
+	
 </mapper>
