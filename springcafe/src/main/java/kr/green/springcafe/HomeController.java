@@ -45,13 +45,19 @@ public class HomeController {
 		@RequestMapping(value = "/signin", method = RequestMethod.POST)
 		public ModelAndView homePost(ModelAndView mv, MemberVo member) {
 			logger.info("URI:/main/signin:POST");
-			System.out.println(member);
 			MemberVo dbUser = memberService.isSign(member);
 			if(dbUser != null) {
 				mv.setViewName("redirect:/");
 				mv.addObject("member",dbUser);
 			}else
 				mv.setViewName("redirect:/signin");
+			return mv;
+		}
+		@RequestMapping(value = "/signout", method = RequestMethod.GET)
+		public ModelAndView signoutGet(ModelAndView mv, HttpServletRequest request) {
+			logger.info("URI:/signout:GET");
+			mv.setViewName("redirect:/");
+			request.getSession().removeAttribute("member");
 			return mv;
 		}
 		@RequestMapping(value = "/signup", method = RequestMethod.GET)

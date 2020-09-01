@@ -9,12 +9,11 @@
         		<c:if test="${member == null}">
 	            	<div class="box-signin"><a href="<%=request.getContextPath()%>/signin" class="link-signin">로그인</a></div>
 	            </c:if>
-	            
-	            <div class="box-sign-up"><a href="<%=request.getContextPath()%>/signup" class="link-signup">회원가입</a></div>
-            	
-            	<c:if test="${member != null}">
+	            <c:if test="${member != null}">
             		<div class="box-sign-up"><a href="<%=request.getContextPath()%>/signout" class="link-signup">로그아웃</a></div>
             	</c:if>
+	            <div class="box-sign-up"><a href="<%=request.getContextPath()%>/signup" class="link-signup">회원가입</a></div>
+            	
             </div>
         </div>
         <div class="container-list">
