@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
         <div class="container-content">
        		<div class="container-order">
-	        	<p>ONLINE-ORDER</p>
+	        	<p>TAKE-OUT</p>
 		        <div class="box-order">
               		<ul class="ul-drink-dessert">
                     	<div class="box-drink">

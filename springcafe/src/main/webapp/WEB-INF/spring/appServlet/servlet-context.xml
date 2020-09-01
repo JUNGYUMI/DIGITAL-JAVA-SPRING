@@ -37,11 +37,20 @@
 	</beans:bean>
 	
 	<beans:bean id="loginInterceptor" 
-	class="kr.green.springcafe.interceptor.LoginInterceptor"></beans:bean>
+		class="kr.green.springcafe.interceptor.LoginInterceptor"></beans:bean>
+	<beans:bean id="authInterceptor" 
+		class="kr.green.springcafe.interceptor.AuthInterceptor"></beans:bean>
+	
 	<interceptors>
-	    <interceptor>
-	        <mapping path="/"/>
-	        <beans:ref bean="loginInterceptor"/>
+		<interceptor>
+				<mapping path="/"/>
+				<beans:ref bean="loginInterceptor"/>
+		</interceptor>
+		<interceptor>
+	        <mapping path="/register"/>
+			<mapping path="/modify"/>
+			<mapping path="/delete"/>
+	        <beans:ref bean="authInterceptor"/>
 	    </interceptor>
 	</interceptors>
 	

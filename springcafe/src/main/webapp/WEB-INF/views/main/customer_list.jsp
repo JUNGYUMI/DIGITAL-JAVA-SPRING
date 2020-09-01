@@ -35,7 +35,7 @@
 					<li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
 					<li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-double-right"></i></a></li>
 				</ul>
-				<form>
+				<form action="<%=request.getContextPath()%>/customer_list">
 					<div class="input-group mb-3">
 						<select class="form-control" id="sel1" name="type">
 							<option value="0">전체</option>

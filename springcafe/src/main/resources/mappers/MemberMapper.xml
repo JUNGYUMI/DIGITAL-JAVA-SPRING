@@ -13,8 +13,8 @@
 	 
 	<insert id="insertUser"> 
 		insert into  
-			member(mem_id, mem_pw, mem_email, mem_gender) 
-			values(#{member.mem_id}, #{member.mem_pw}, #{member.mem_email}, #{member.mem_gender}) 
+			member(mem_id, mem_pw, mem_email, mem_gender, mem_phone, mem_name) 
+			values(#{member.mem_id}, #{member.mem_pw}, #{member.mem_email}, #{member.mem_gender}, #{member.mem_phone}, #{member.mem_name}) 
 	</insert>
 	
 </mapper>

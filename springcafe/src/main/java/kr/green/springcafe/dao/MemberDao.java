@@ -7,7 +7,7 @@ import kr.green.springcafe.vo.MemberVo;
 public interface MemberDao {
 	public String getEmail(@Param("id")String id);
 
-	public Object getUser(@Param("mem_id")String mem_id);
+	public MemberVo getUser(@Param("mem_id")String mem_id);
 
 	public void insertUser(@Param("member")MemberVo member);
 

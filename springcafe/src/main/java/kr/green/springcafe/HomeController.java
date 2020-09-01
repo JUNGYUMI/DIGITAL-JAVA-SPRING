@@ -36,30 +36,40 @@ public class HomeController {
 			mv.setViewName("/main/home");
 			return mv;
 		}
-		
-		@RequestMapping(value = "/signup", method = RequestMethod.POST)
-		public ModelAndView signupPost(ModelAndView mv, MemberVo user) throws Exception{
-		    logger.info("URI: signup:POST");
-			if(memberService.signup(user)) {
-				mv.setViewName("redirect:/");
-			}else {
-				mv.setViewName("redirect:/signup");
-				mv.addObject("user",user);
-			}
-		    return mv;
-		}
-		
 		@RequestMapping(value = "/signin", method = RequestMethod.GET)
 		public ModelAndView signinGet(ModelAndView mv) {
 			logger.info("URI:/main/signin");
 			mv.setViewName("/main/signin");
 			return mv;
 		}
+		@RequestMapping(value = "/signin", method = RequestMethod.POST)
+		public ModelAndView homePost(ModelAndView mv, MemberVo member) {
+			logger.info("URI:/main/signin:POST");
+			System.out.println(member);
+			MemberVo dbUser = memberService.isSign(member);
+			if(dbUser != null) {
+				mv.setViewName("redirect:/");
+				mv.addObject("member",dbUser);
+			}else
+				mv.setViewName("redirect:/signin");
+			return mv;
+		}
 		@RequestMapping(value = "/signup", method = RequestMethod.GET)
 		public ModelAndView signupGet(ModelAndView mv) {
-			logger.info("URI:/main/signup");
+			logger.info("URI:/signup");
 			mv.setViewName("/main/signup");
 			return mv;
+		}
+		@RequestMapping(value = "/signup", method = RequestMethod.POST)
+		public ModelAndView signupPost(ModelAndView mv, MemberVo member) {
+		    logger.info("URI: signup:POST");
+			if(memberService.signup(member)) {
+				mv.setViewName("redirect:/");
+			}else {
+				mv.setViewName("redirect:/signup");
+				mv.addObject("member",member);
+			}
+		    return mv;
 		}
 		@RequestMapping(value = "/introduce", method = RequestMethod.GET)
 		public ModelAndView introduceGet(ModelAndView mv) {
