@@ -8,47 +8,47 @@
 	            <div class="container-box-word">
 	                <p class="container-member-title">가맹 희망지역</p>
 	                <div class="container-membership hope-location">
-	                    <input type="text" placeholder="개설 희망지역을 동 단위까지 입력해주세요.">
+	                    <input type="text" name="ship_location" placeholder="개설 희망지역을 동 단위까지 입력해주세요.">
 	                </div>
 	            </div>
 	            <div class="container-box-word">
 	                <p class="container-member-title">원하는 점포형태</p>
 	                <div class="container-membership hope-store">
-	                    <input type = "radio" name = "store" value="normal" id="normal"> <label for ="normal"> 일반매장</label>
-	                    <input type = "radio" name = "store" value="drive" id="drive"> <label for ="drive"> 드라이브 인/스루</label>
-	                    <input type = "radio" name = "store" value="etc" id="etc"> <label for ="etc"> 기타</label> <input type="text">
+	                    <input type = "radio" name = "ship_store_shape" value="normal" id="normal"> <label for ="normal"> 일반매장</label>
+	                    <input type = "radio" name = "ship_store_shape" value="drive" id="drive"> <label for ="drive"> 드라이브 인/스루</label>
+	                    <input type = "radio" name = "ship_store_shape" value="etc" id="etc"> <label for ="etc"> 기타</label> <input type="text">
 	                </div>
 	            </div>
 	
 	            <div class="container-box-word">
 	                <p class="container-member-title">점포 소유 여부</p>
 	                <div class="container-membership get-store">
-	                    <input type="radio" name="get-store" value="yes" id="yes"> <label for="Y">예</label>
-	                    <input type="radio" name="get-store" value="no" id="no"> <label for="N">아니오</label>
+	                    <input type="radio" name="ship_possession" value="Y" id="Y"> <label for="Y">예</label>
+	                    <input type="radio" name="ship_possession" value="N" id="N"> <label for="N">아니오</label>
 	                </div>
 	            </div>
 	            <div class="container-box-word">
 	                <p class="container-member-title">연령대</p>
 	                <div class="container-membership mem-age">
-	                    <input type="radio" name="age" value="20대" id="20대"> <label for="20대">20대</label>
-	                    <input type="radio" name="age" value="30대" id="30대"> <label for="30대">30대</label>
-	                    <input type="radio" name="age" value="40대" id="40대"> <label for="40대">40대</label>
-	                    <input type="radio" name="age" value="50대" id="50대"> <label for="50대">50대</label>
-	                    <input type="radio" name="age" value="60대 이상" id="60대 이상"> <label for="60대 이상">60대 이상</label>
+	                    <input type="radio" name="ship_age" value="20대" id="20대"> <label for="20대">20대</label>
+	                    <input type="radio" name="ship_age" value="30대" id="30대"> <label for="30대">30대</label>
+	                    <input type="radio" name="ship_age" value="40대" id="40대"> <label for="40대">40대</label>
+	                    <input type="radio" name="ship_age" value="50대" id="50대"> <label for="50대">50대</label>
+	                    <input type="radio" name="ship_age" value="60대 이상" id="60대 이상"> <label for="60대 이상">60대 이상</label>
 	                </div>
 	            </div>
 	            <div class="container-box-word">
 	                <p class="container-member-title">신청자명</p>
 	                <div class="container-membership mem-name">
-	                    <input type="text">
+	                    <input type="text" name="ship_name">
 	                </div>
 	            </div>
 	            <div class="container-box-word">
 	                <p class="container-member-title">휴대폰 번호</p>
 	                <div class="container-membership mem-tel">
-	                    <input type="tel" name="phone1"> -
-	                    <input type="tel" name="phone2"> -
-	                    <input type="tel" name="phone3">
+	                    <input type="tel" name="ship_phone"> -
+	                    <input type="tel" name="ship_phone"> -
+	                    <input type="tel" name="ship_phone">
 	                </div>
 	            </div>
 	
@@ -74,8 +74,8 @@
 	
 	            <div class="box-agree">
 	                <div class="box-container-agree">
-	                    <input type="radio" name="agree-unagree" class="agree" value="agree" id="agree"> <label for="agree">동의</label>
-	                    <input type="radio" name="agree-unagree" class="unagree" value="unagree" id="unagree"> <label for="unagree">미동의</label>
+	                    <input type="radio" name="agree-disagree" class="agree" value="agree" id="agree"> <label for="agree">동의</label>
+	                    <input type="radio" name="agree-disagree" class="unagree" value="unagree" id="unagree"> <label for="unagree">미동의</label>
 	                </div>
 	            </div>
 	            <br>

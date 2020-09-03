@@ -433,6 +433,13 @@
            border-radius: 30px;
            font-size: 18px;
        }
+/* 주문확인 리스트 */
+		.h5-list{
+	        font-weight: bold;
+	    }
+	    .th-list{
+	        border: 1px solid black;
+	    }	
 /* 공지사항,문의 */
        .justify-content-center{
             justify-content: center;
@@ -455,8 +462,8 @@
        	}
        	.fas{
        		line-height: 1.5px;
-   		}
-/* 가맹문의 */
+   		} 
+/* 가맹문의  */
 		.container-membership-body{
 		            margin: 0 auto;
 		            width: 1000px;

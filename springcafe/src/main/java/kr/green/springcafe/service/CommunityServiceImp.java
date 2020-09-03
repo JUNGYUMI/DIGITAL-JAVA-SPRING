@@ -9,6 +9,7 @@ import kr.green.springcafe.dao.CommunityDao;
 import kr.green.springcafe.pagination.Criteria;
 import kr.green.springcafe.pagination.PageMaker;
 import kr.green.springcafe.vo.CommunityVo;
+import kr.green.springcafe.vo.MembershipVo;
 
 @Service
 public class CommunityServiceImp implements CommunityService {
@@ -18,12 +19,6 @@ public class CommunityServiceImp implements CommunityService {
 	@Override
 	public ArrayList<CommunityVo> getBoardList(Criteria cri) {
 		return communityDao.getBoardList(cri);
-		
-	}
-
-	@Override
-	public void insertCommunity(CommunityVo community) {
-		communityDao.insertCommunity(community);
 	}
 
 	@Override
@@ -38,6 +33,12 @@ public class CommunityServiceImp implements CommunityService {
 	@Override
 	public CommunityVo getBoard(Integer num) {
 		return communityDao.getBoard(num);
+	}
+
+	@Override
+	public void insertMembership(MembershipVo membership) {
+		communityDao.insertMembership(membership);
+		
 	}
 	
 }

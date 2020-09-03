@@ -19,6 +19,7 @@ import kr.green.springcafe.service.CommunityService;
 import kr.green.springcafe.service.MemberService;
 import kr.green.springcafe.vo.CommunityVo;
 import kr.green.springcafe.vo.MemberVo;
+import kr.green.springcafe.vo.MembershipVo;
 
 @Controller
 public class HomeController {
@@ -107,6 +108,12 @@ public class HomeController {
 			mv.setViewName("/main/online_order");
 			return mv;
 		}
+		@RequestMapping(value = "/online_order", method = RequestMethod.POST)
+		public ModelAndView online_orderPost(ModelAndView mv) {
+			logger.info("URI:redirect:/main/order_list");
+			mv.setViewName("redirect:/main/order_list");
+			return mv;
+		}
 		@RequestMapping(value = "/takeout_order", method = RequestMethod.GET)
 		public ModelAndView takeout_orderGet(ModelAndView mv) {
 			logger.info("URI:/main/takeout_order");
@@ -160,10 +167,10 @@ public class HomeController {
 			return mv;
 		}
 		@RequestMapping(value = "/membership", method = RequestMethod.POST)
-		public ModelAndView membershipPost(ModelAndView mv, CommunityVo community) {
+		public ModelAndView membershipPost(ModelAndView mv, MembershipVo membership) {
 			logger.info("URI: redirect:/");
 			mv.setViewName("redirect:/");
-			communityService.insertCommunity(community); 
+			communityService.insertMembership(membership);
 			return mv;
 		}
 		
