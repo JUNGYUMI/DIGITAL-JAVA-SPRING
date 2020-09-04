@@ -14,9 +14,9 @@
 	            <div class="container-box-word">
 	                <p class="container-member-title">원하는 점포형태</p>
 	                <div class="container-membership hope-store">
-	                    <input type = "radio" name = "ship_store_shape" value="normal" id="normal"> <label for ="normal"> 일반매장</label>
-	                    <input type = "radio" name = "ship_store_shape" value="drive" id="drive"> <label for ="drive"> 드라이브 인/스루</label>
-	                    <input type = "radio" name = "ship_store_shape" value="etc" id="etc"> <label for ="etc"> 기타</label> <input type="text">
+	                    <input type = "radio" name = "ship_store_shape" value="일반매장" id="normal"> <label for ="normal"> 일반매장</label>
+	                    <input type = "radio" name = "ship_store_shape" value="드라이브 인/스루" id="drive"> <label for ="drive"> 드라이브 인/스루</label>
+	                    <input type = "radio" name = "ship_store_shape" value="기타" id="etc"> <label for ="etc"> 기타</label> <input type="text">
 	                </div>
 	            </div>
 	
@@ -75,7 +75,7 @@
 	            <div class="box-agree">
 	                <div class="box-container-agree">
 	                    <input type="radio" name="agree-disagree" class="agree" value="agree" id="agree"> <label for="agree">동의</label>
-	                    <input type="radio" name="agree-disagree" class="unagree" value="unagree" id="unagree"> <label for="unagree">미동의</label>
+	                    <input type="radio" name="agree-disagree" class="unagree" value="diagree" id="unagree"> <label for="unagree">미동의</label>
 	                </div>
 	            </div>
 	            <br>
