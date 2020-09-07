@@ -7,7 +7,10 @@ public class MembershipVo {
 	private String ship_possession;
 	private String ship_age;
 	private String ship_name;
-	private String ship_phone;
+	private String ship_phone1;
+	private String ship_phone2;
+	private String ship_phone3;
+	private String ship_agree;
 	
 	public int getShip_num() {
 		return ship_num;
@@ -45,19 +48,39 @@ public class MembershipVo {
 	public void setShip_name(String ship_name) {
 		this.ship_name = ship_name;
 	}
-	public String getShip_phone() {
-		return ship_phone;
-	}
-	public void setShip_phone(String ship_phone) {
-		this.ship_phone = ship_phone;
-	}
 	
+	public String getShip_agree() {
+		return ship_agree;
+	}
+	public void setShip_agree(String ship_agree) {
+		this.ship_agree = ship_agree;
+	}
+	public String getShip_phone1() {
+		return ship_phone1;
+	}
+	public void setShip_phone1(String ship_phone1) {
+		this.ship_phone1 = ship_phone1;
+	}
+	public String getShip_phone2() {
+		return ship_phone2;
+	}
+	public void setShip_phone2(String ship_phone2) {
+		this.ship_phone2 = ship_phone2;
+	}
+	public String getShip_phone3() {
+		return ship_phone3;
+	}
+	public void setShip_phone3(String ship_phone3) {
+		this.ship_phone3 = ship_phone3;
+	}
 	@Override
 	public String toString() {
 		return "MembershipVo [ship_num=" + ship_num + ", ship_location=" + ship_location + ", ship_store_shape="
 				+ ship_store_shape + ", ship_possession=" + ship_possession + ", ship_age=" + ship_age + ", ship_name="
-				+ ship_name + ", ship_phone=" + ship_phone + "]";
+				+ ship_name + ", ship_phone1=" + ship_phone1 + ", ship_phone2=" + ship_phone2 + ", ship_phone3="
+				+ ship_phone3 + ", ship_agree=" + ship_agree + "]";
 	}
+	
 	
 	
 }

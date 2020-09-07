@@ -437,6 +437,13 @@
 	.h5-list{
 		font-weight: bold;
 	}
+	.order_list-container>.container-content{
+		height: 640px;
+	}
+	.btn-order_list>.box-btn-submit{
+		margin-top: 50px;
+		float: right;
+	}
 /* 공지사항,문의 */
        .justify-content-center{
             justify-content: center;

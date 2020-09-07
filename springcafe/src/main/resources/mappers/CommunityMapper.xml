@@ -21,7 +21,7 @@
  
   <insert id="insertMembership">
   	insert into
-  		membership(ship_num, ship_location, ship_store_shape, ship_possession, ship_age, ship_name, ship_phone)
-  		values(#{membership.ship_num}, #{membership.ship_location}, #{membership.ship_store_shape}, #{membership.ship_possession}, #{membership.ship_age}, #{membership.ship_name}, #{membership.ship_phone})
+  		membership(ship_num, ship_location, ship_store_shape, ship_possession, ship_age, ship_name, ship_phone, ship_agree)
+  		values(#{membership.ship_num}, #{membership.ship_location}, #{membership.ship_store_shape}, #{membership.ship_possession}, #{membership.ship_age}, #{membership.ship_name}, concat(#{membership.ship_phone1},'-',#{membership.ship_phone2},'-',#{membership.ship_phone3}), #{membership.ship_agree})
   </insert>
 </mapper>

@@ -175,10 +175,31 @@ public class HomeController {
 			return mv;
 		}
 		@RequestMapping(value = "/membership", method = RequestMethod.POST)
-		public ModelAndView membershipPost(ModelAndView mv, MembershipVo membership) {
+		public ModelAndView membershipPost(ModelAndView mv, MembershipVo membership){
 			logger.info("URI: redirect:/");
 			mv.setViewName("redirect:/");
 			communityService.insertMembership(membership);
+			
+			String setfrom = "roumeiii@naver.com";         
+		    String tomail  = "roumeiii@naver.com";     // 받는 사람 이메일
+		    String title   = "가맹문의";      // 제목
+		    String content = setMail(membership);    // 내용
+
+			    try {
+			        MimeMessage message = mailSender.createMimeMessage();
+			        MimeMessageHelper messageHelper 
+			            = new MimeMessageHelper(message, true, "UTF-8");
+
+			        messageHelper.setFrom(setfrom);  // 보내는사람 생략하거나 하면 정상작동을 안함
+			        messageHelper.setTo(tomail);     // 받는사람 이메일
+			        messageHelper.setSubject(title); // 메일제목은 생략이 가능하다
+			        messageHelper.setText(content, true);  // 메일 내용
+
+			        mailSender.send(message);
+			    } catch(Exception e){
+			        System.out.println(e);
+			    }
+			
 			return mv;
 		}
 		
@@ -207,7 +228,7 @@ public class HomeController {
 		        messageHelper.setFrom(setfrom);  // 보내는사람 생략하거나 하면 정상작동을 안함
 		        messageHelper.setTo(tomail);     // 받는사람 이메일
 		        messageHelper.setSubject(title); // 메일제목은 생략이 가능하다
-		        messageHelper.setText(content);  // 메일 내용
+		        messageHelper.setText(content, true);  // 메일 내용
 
 		        mailSender.send(message);
 		    } catch(Exception e){
@@ -216,7 +237,87 @@ public class HomeController {
 
 		    return "redirect:/mail/mailForm";
 		}
-		
+		public String setMail(MembershipVo m) {
+			String form = "<div class=\"container-content\">\n" + 
+					"	        <div class=\"container-membership-body\">\n" + 
+					"	            <div class=\"container-box-word\">\n" + 
+					"	                <p class=\"container-member-title\">가맹 희망지역</p>\n" + 
+					"	                <div class=\"container-membership hope-location\">\n" + 
+					"	                    <input type=\"text\" name=\"ship_location\" value=\""+m.getShip_location()+"\" >\n" + 
+					"	                </div>\n" + 
+					"	            </div>\n" + 
+					"	            <div class=\"container-box-word\">\n" + 
+					"	                <p class=\"container-member-title\">원하는 점포형태</p>\n" + 
+					"	                <div class=\"container-membership hope-store\">\n" + 
+					"	                    <input type = \"radio\" name = \"ship_store_shape\" value=\"일반매장\" id=\"normal\""+ (m.getShip_store_shape().equals("일반매장")?"checked":"") +"> <label for =\"normal\"> 일반매장</label>\n" + 
+					"	                    <input type = \"radio\" name = \"ship_store_shape\" value=\"드라이브 인/스루\" id=\"drive\""+ (m.getShip_store_shape().equals("드라이브 인/스루")?"checked":"") +"> <label for =\"drive\"> 드라이브 인/스루</label>\n" + 
+					"	                    <input type = \"radio\" name = \"ship_store_shape\" value=\"기타\" id=\"etc\" value=\""+ m.getShip_store_shape() +"\"> <label for =\"etc\"> 기타</label> <input type=\"text\">\n" + 
+					"	                </div>\n" + 
+					"	            </div>\n" + 
+					"	\n" + 
+					"	            <div class=\"container-box-word\">\n" + 
+					"	                <p class=\"container-member-title\">점포 소유 여부</p>\n" + 
+					"	                <div class=\"container-membership get-store\">\n" + 
+					"	                    <input type=\"radio\" name=\"ship_possession\" value=\"Y\" id=\"Y\""+ (m.getShip_possession().equals("Y")?"checked":"") +"> <label for=\"Y\">예</label>\n" + 
+					"	                    <input type=\"radio\" name=\"ship_possession\" value=\"N\" id=\"N\""+ (m.getShip_possession().equals("N")?"checked":"") +"> <label for=\"N\">아니오</label>\n" + 
+					"	                </div>\n" + 
+					"	            </div>\n" + 
+					"	            <div class=\"container-box-word\">\n" + 
+					"	                <p class=\"container-member-title\">연령대</p>\n" + 
+					"	                <div class=\"container-membership mem-age\">\n" + 
+					"	                    <input type=\"radio\" name=\"ship_age\" value=\"20대\" id=\"20대\""+ (m.getShip_age().equals("20대")?"checked":"") +"> <label for=\"20대\">20대</label>\n" + 
+					"	                    <input type=\"radio\" name=\"ship_age\" value=\"30대\" id=\"30대\""+ (m.getShip_age().equals("30대")?"checked":"") +"> <label for=\"30대\">30대</label>\n" + 
+					"	                    <input type=\"radio\" name=\"ship_age\" value=\"40대\" id=\"40대\""+ (m.getShip_age().equals("40대")?"checked":"") +"> <label for=\"40대\">40대</label>\n" + 
+					"	                    <input type=\"radio\" name=\"ship_age\" value=\"50대\" id=\"50대\""+ (m.getShip_age().equals("50대")?"checked":"") +"> <label for=\"50대\">50대</label>\n" + 
+					"	                    <input type=\"radio\" name=\"ship_age\" value=\"60대 이상\" id=\"60대 이상\""+ (m.getShip_age().equals("60대 이상")?"checked":"") +"> <label for=\"60대 이상\">60대 이상</label>\n" + 
+					"	                </div>\n" + 
+					"	            </div>\n" + 
+					"	            <div class=\"container-box-word\">\n" + 
+					"	                <p class=\"container-member-title\">신청자명</p>\n" + 
+					"	                <div class=\"container-membership mem-name\">\n" + 
+					"	                    <input type=\"text\" name=\"ship_name\" value=\""+ m.getShip_name() +"\">\n" + 
+					"	                </div>\n" + 
+					"	            </div>\n" + 
+					"	            <div class=\"container-box-word\">\n" + 
+					"	                <p class=\"container-member-title\">휴대폰 번호</p>\n" + 
+					"	                <div class=\"container-membership mem-tel\">\n" + 
+					"	                    <input type=\"text\" name=\"ship_phone\" value=\""+ m.getShip_phone1() +"\"> -\n" + 
+					"	                    <input type=\"text\" name=\"ship_phone\" value=\""+ m.getShip_phone2() +"\"> -\n" + 
+					"	                    <input type=\"text\" name=\"ship_phone\" value=\""+ m.getShip_phone3() +"\"> \n" + 
+					"	                </div>\n" + 
+					"	            </div>\n" + 
+					"	\n" + 
+					"	            <p>유디아 가맹문의 개인정보 수집이용 동의 안내</p>\n" + 
+					"	            <div class=\"box-container-info\">\n" + 
+					"	                <p>회사는 유디아 가맹설명회 신청에서 수집한 개인정보를 다음의 목적을 위해 활용합니다. 이용자가 제공한 모든 정보는 하기 목적에 필요한 용도 이외로는 사용되지 않으며 이용 목적이 변경될 시에는 사전 동의를 구할 것입니다.</p>\n" + 
+					"	                <ul class=\"nav-info-list\">\n" + 
+					"	                    <li class=\"list-info\">\n" + 
+					"	                        <p>■ 개인정보 수집 이용목적<br>\n" + 
+					"	                        - 유디아 가맹 및 고객문의 응답처리를 위해 수집</p>\n" + 
+					"	                    </li>\n" + 
+					"	                    <li class=\"list-info\">\n" + 
+					"	                        <p>■ 수집하는 개인정보 항목<br>\n" + 
+					"	                        - 이름, 연락처(전화번호, 핸드폰번호), 이메일 가맹희망지역, 문의내용</p>\n" + 
+					"	                    </li>\n" + 
+					"	                    <li class=\"list-info\">\n" + 
+					"	                        <p>■ 개인정보 수집 이용목적<br>\n" + 
+					"	                        - 가맹 및 고객문의 처리 완료되는 시점으로 부터 1개월 보유 후 파기</p>\n" + 
+					"	                    </li>\n" + 
+					"	                </ul>\n" + 
+					"	                <p class=\"mem-info\">※위의 개인정보 수집·이용에 대한 동의를 거부할 권리가 있습니다. 그러나 동의를 거부할 경우 원활한 가맹문의 서비스 제공에 일부 제한을 받을 수 있습니다.</p>\n" + 
+					"	            </div>\n" + 
+					"	\n" + 
+					"	            <div class=\"box-agree\">\n" + 
+					"	                <div class=\"box-container-agree\">\n" + 
+					"	                    <input type=\"radio\" name=\"agree-disagree\" class=\"agree\" value=\"agree\" id=\"agree\""+ (m.getShip_agree().equals("동의")?"checked":"") +"> <label for=\"agree\">동의</label>\n" + 
+					"	                    <input type=\"radio\" name=\"agree-disagree\" class=\"unagree\" value=\"disagree\" id=\"disagree\""+ (m.getShip_agree().equals("비동의")?"checked":"") +"> <label for=\"disagree\">비동의</label>\n" + 
+					"	                </div>\n" + 
+					"	            </div>\n" + 
+					"	            <br>\n" + 
+					"	        </div>\n" + 
+					"        </div>";
+			return form;
+		}
 }
 
 

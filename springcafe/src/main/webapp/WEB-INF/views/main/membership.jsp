@@ -74,8 +74,8 @@
 	
 	            <div class="box-agree">
 	                <div class="box-container-agree">
-	                    <input type="radio" name="agree-disagree" class="agree" value="agree" id="agree"> <label for="agree">동의</label>
-	                    <input type="radio" name="agree-disagree" class="unagree" value="diagree" id="unagree"> <label for="unagree">미동의</label>
+	                    <input type="radio" name="ship_agree" class="agree" value="agree" id="agree"> <label for="agree">동의</label>
+	                    <input type="radio" name="ship_agree" class="unagree" value="disagree" id="disagree"> <label for="disagree">비동의</label>
 	                </div>
 	            </div>
 	            <br>
