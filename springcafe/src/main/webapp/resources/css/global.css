@@ -2,7 +2,8 @@
 
 	*{ 
           margin: 0; 
-          padding: 0; 
+          padding: 0;
+          decoration: none;
       }
 /*헤드 부분*/
       .main-head{
@@ -22,11 +23,11 @@
       }
       .box-sign{
             height: 30px;
-            width: 160px;
+            width: 90px;
             float: right;
       }
       .box-home, .box-signin, .box-sign-up{
-          width: 60px;
+          width: 30px;
           height: 30px;
           text-align: center;
           line-height: 30px;

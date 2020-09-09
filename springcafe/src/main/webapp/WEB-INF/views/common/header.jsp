@@ -5,14 +5,14 @@
 <div class="main-head">
         <div class="container-sign">
         	<div class="box-sign">
-        		<div class="box-home"><a href="<%=request.getContextPath()%>/" class="link-home">홈</a></div>
+        		<div class="box-home"><a href="<%=request.getContextPath()%>/" class="link-home"><i class="fas fa-home"></i></a></div>
         		<c:if test="${member == null}">
-	            	<div class="box-signin"><a href="<%=request.getContextPath()%>/signin" class="link-signin">로그인</a></div>
+	            	<div class="box-signin"><a href="<%=request.getContextPath()%>/signin" class="link-signin"><i class="fas fa-sign-in-alt"></i></a></div>
 	            </c:if>
 	            <c:if test="${member != null}">
-            		<div class="box-sign-up"><a href="<%=request.getContextPath()%>/signout" class="link-signup">로그아웃</a></div>
+            		<div class="box-sign-up"><a href="<%=request.getContextPath()%>/signout" class="link-signup"><i class="fas fa-sign-out-alt"></i></a></div>
             	</c:if>
-	            <div class="box-sign-up"><a href="<%=request.getContextPath()%>/signup" class="link-signup">회원가입</a></div>
+	            <div class="box-sign-up"><a href="<%=request.getContextPath()%>/signup" class="link-signup"><i class="fas fa-user-plus"></i></a></div>
             	
             </div>
         </div>

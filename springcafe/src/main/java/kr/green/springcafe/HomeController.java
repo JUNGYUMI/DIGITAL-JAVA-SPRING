@@ -22,6 +22,7 @@ import kr.green.springcafe.service.MemberService;
 import kr.green.springcafe.vo.CommunityVo;
 import kr.green.springcafe.vo.MemberVo;
 import kr.green.springcafe.vo.MembershipVo;
+import kr.green.springcafe.vo.ProductVo;
 
 @Controller
 public class HomeController {
@@ -122,6 +123,14 @@ public class HomeController {
 			mv.setViewName("/main/order_list");
 			return mv;
 		}
+		
+		@RequestMapping(value = "/order_list", method = RequestMethod.POST)
+		public ModelAndView order_listPost(ModelAndView mv) {
+			logger.info("URI:/main/home");
+			mv.setViewName("/main/home");
+			return mv;
+		}
+		
 		@RequestMapping(value = "/takeout_order", method = RequestMethod.GET)
 		public ModelAndView takeout_orderGet(ModelAndView mv) {
 			logger.info("URI:/main/takeout_order");
@@ -202,7 +211,7 @@ public class HomeController {
 			
 			return mv;
 		}
-		
+				
 		@Autowired
 		private JavaMailSender mailSender;
 		@RequestMapping(value = "/mail/mailForm")

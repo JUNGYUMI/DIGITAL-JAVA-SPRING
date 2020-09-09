@@ -6,7 +6,7 @@
 	<div class="order_list-container">
 		<div class="container-content">
 			<div class="container-orderlist">
-			  <h5 class="h5-list">주문확인 리스트</h5>     
+			  <h4 class="h5-list">주문확인 리스트</h4>     
 			  <table class="table">
 			    <thead>
 			      <tr>
@@ -18,13 +18,13 @@
 			    </thead>
 			    <tbody>
 			      <tr>
-			        <td>리스트번호0</td>
-			        <td>리스트주문번호0</td>
-			        <td>리스트상품0 <img src="<%=request.getContextPath()%>/resources/img/background.jpg" alt="product_img" width="60" height="60"></td>
+			        <td>리스트번호</td>
+			        <td>리스트주문번호</td>
+			        <td>리스트상품 <img src="<%=request.getContextPath()%>/resources/img/background.jpg" alt="product_img" width="60" height="60"></td>
 					<td>
-						<a href="#"><i class="fas fa-minus"></i></a> 
-		          		<span>리스트수량0</span>
-					    <a href="#"><i class="fas fa-plus"></i></a></td>
+						<a href="#" id="decreaseQuantity"><i class="fas fa-minus"></i></a> 
+		          		<span id="numberUpDown"> 1 </span>
+					    <a href="#" id="increaseQuantity"><i class="fas fa-plus"></i></a></td>
 			      </tr>
 			    </tbody>
 			  </table>
@@ -35,4 +35,35 @@
 		</div>
 	</div>
 </form>
+<script>
+	$(function(){
+		$('.box-btn-submit').click(function(){
+			alert('주문이 접수되었습니다.');
+		})
+
+		$('#decreaseQuantity').click(function(e){
+			e.preventDefault();
+			var stat = $('#numberUpDown').text();
+			var num = parseInt(stat,10);
+			num--;
+			if(num<=0){
+				alert('1개부터 주문이 가능합니다.');
+				num =1;
+			}
+			$('#numberUpDown').text(num);
+		});
+		$('#increaseQuantity').click(function(e){
+			e.preventDefault();
+			var stat = $('#numberUpDown').text();
+			var num = parseInt(stat,10);
+			num++;
+
+			if(num>5){
+				alert('더 이상 추가할 수 없습니다.');
+				num=5;
+			}
+			$('#numberUpDown').text(num);
+		});
+	});
+</script>
 
