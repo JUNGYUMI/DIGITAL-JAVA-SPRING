@@ -18,12 +18,12 @@
 			    </thead>
 			    <tbody>
 			      <tr>
-			        <td>리스트번호</td>
-			        <td>리스트주문번호</td>
-			        <td>리스트상품 <img src="<%=request.getContextPath()%>/resources/img/background.jpg" alt="product_img" width="60" height="60"></td>
+			        <td>1111</td>
+			        <td>2222</td>
+			        <td>3333　　<img src="<%=request.getContextPath()%>/resources/img/background.jpg" alt="product_img" width="60" height="60"></td>
 					<td>
 						<a href="#" id="decreaseQuantity"><i class="fas fa-minus"></i></a> 
-		          		<span id="numberUpDown"> 1 </span>
+		          		<span id="numberUpDown">　1　</span>
 					    <a href="#" id="increaseQuantity"><i class="fas fa-plus"></i></a></td>
 			      </tr>
 			    </tbody>

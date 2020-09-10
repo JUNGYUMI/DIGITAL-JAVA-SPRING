@@ -19,9 +19,11 @@ import kr.green.springcafe.pagination.Criteria;
 import kr.green.springcafe.pagination.PageMaker;
 import kr.green.springcafe.service.CommunityService;
 import kr.green.springcafe.service.MemberService;
+import kr.green.springcafe.service.OrderService;
 import kr.green.springcafe.vo.CommunityVo;
 import kr.green.springcafe.vo.MemberVo;
 import kr.green.springcafe.vo.MembershipVo;
+import kr.green.springcafe.vo.OrderVo;
 import kr.green.springcafe.vo.ProductVo;
 
 @Controller
@@ -31,6 +33,8 @@ public class HomeController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	

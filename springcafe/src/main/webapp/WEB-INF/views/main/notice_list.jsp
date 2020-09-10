@@ -53,7 +53,7 @@
 			</ul>
 				
 				<form>
-					<div class="input-group mb-3">
+					<div class="input-group mb-3 justify-content-center">
 						<select class="form-control" id="sel1" name="type">
 							<option value="0">전체</option>
 							<option value="1">작성자</option>
