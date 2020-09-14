@@ -403,6 +403,9 @@
        .container-box-menu>img{
            box-sizing:border-box;
        }
+       .container-box-menu>label{
+       		font-weight: 0;
+       }
        .box-menu-line1{
            position: relative;
            height: 130px;
@@ -444,7 +447,7 @@
 		margin-top: 50px;
 		float: right;
 	}
-/* 공지사항,문의 */
+/* 공지사항,문의  */
        .justify-content-center{
             justify-content: center;
             display: flex;
