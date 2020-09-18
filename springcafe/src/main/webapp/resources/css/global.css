@@ -395,8 +395,7 @@
            height: 150px;
            width: 150px;
            box-sizing: border-box;
-           position: relative;
-           top: 50px;
+           position: relative;           
            float: left;
            margin-left: 40px;
        }
@@ -407,17 +406,19 @@
        		font-weight: 0;
        }
        .box-menu-line1{
-           position: relative;
+           position: absolute;
            height: 130px;
-           top: -20px;
+           top: 280px;
        }
        .box-menu-line2{
-           position: relative;
-           top: 15px;
+           position: absolute;
+           height: 130px;
+           top: 460px;
        }
        .box-menu-line3{
-           position: relative;
-           top: 50px;
+           position: absolute;
+           height: 130px;
+           top: 650px;
        }
        .cafe-menu-name{
            width: 50px;
@@ -425,7 +426,6 @@
        }
        .box-menu-name{
            position: relative;
-           top: -5px;
            left: 20px;
        }
        .btn-order{
@@ -471,13 +471,16 @@
        		line-height: 1.5px;
    		} 
 /* 가맹문의  */
+		label{
+			font-weight: 50;
+		}
 		.container-membership-body{
 		            margin: 0 auto;
 		            width: 1000px;
 		            height: 1000px;
         }
         .container-membership{
-            margin-top: -15px;
+            margin-top: 5px 0 10px 0;
             height: 18px;
         }
         .container-membership>input{
@@ -534,6 +537,9 @@
         }
         .container-box-word{
             margin-bottom: 22px;
+        }
+        .container-member-title{
+        	margin-bottom: 0;
         }
 /*footer*/
       footer {
