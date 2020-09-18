@@ -252,7 +252,7 @@
 	                    </div>
 	                </div>
 	            </div>
-            <button class="btn-order">주문</button> <!--주문 버튼 누른 후 주문리스트로 이동-->
+            <button class="btn-order">주문</button>
             </div>
 	    </div>
 	   </form>

@@ -29,7 +29,7 @@
 			    </tbody>
 			  </table>
 			  <div class="btn-order_list">
-			  	<div class="box-btn-submit"><button class="btn-submit">확인</button></div>
+			  	<div class="box-btn-submit"><button class="btn-order">확인</button></div>
 			  </div>
 			</div>
 		</div>

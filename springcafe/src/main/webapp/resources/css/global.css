@@ -19,7 +19,6 @@
           height: 30px;
           right: 0;
           position: relative;
-          margin-top: 5px;
       }
       .box-sign{
             height: 30px;
@@ -78,7 +77,11 @@
       }
       #demo:hover, #demo2:hover, #demo3:hover, #demo4:hover{
           text-decoration: none;
-      }      
+      }
+      .link-list:focus, .link-list:hover {
+	    color: #23527c;
+	    text-decoration: none;
+	}     
 /*내용 부분*/
 	.container{
 		padding: 0;
@@ -90,7 +93,14 @@
 	.collapse{
 	    z-index: 15;
 	}
-/* sns 꾸미기*/
+/*슬라이딩*/
+	.carousel-control.left {
+	    background-image: linear-gradient(to right,rgba(0,0,0,0%) 0,rgba(0,0,0,0%) 100%);
+	}
+	.carousel-control.right {
+		background-image: linear-gradient(to right,rgba(0,0,0,0%) 0,rgba(0,0,0,0%) 100%);
+	}
+/*sns 꾸미기*/
      .box-container-wrapper{
          height: 414px;
          margin-top: 100px;
@@ -183,10 +193,10 @@
 	    color: rgb(126, 124, 124);
 	    margin: 0 auto;
 	}
-/* 회원가입 화면 */
+/*회원가입 화면*/
 	.container-signup{ 
 		width: 500px; 
-		margin: 0 auto; 
+		margin: 0 auto;
 	} 
 	.signup-logo{ 
 		text-align: left; 
@@ -319,7 +329,7 @@
 	.box-signup{
 		border-radius: 23px;
 	}
-/* 카페소개 */
+/*카페소개*/
 	.intro-container{
 	            width: 800px;
 	            border: 1px solid black;
@@ -327,7 +337,7 @@
 	            height: 1000px;
 	            margin-top: 80px;
 	}
-/* 카페 위치 */
+/*카페 위치*/
 		.box-location>h2{
             text-align: center;
         }
@@ -353,7 +363,7 @@
        .container-order>p{
            font-weight: bold;
        }
-/* 메뉴 음료/디저트 부분 */
+/*메뉴 음료/디저트 부분*/
        .box-order{
            height: 70px;
            border: 1px solid black;
@@ -386,7 +396,7 @@
        .box-dessert{
            left: 600px;  
        }
-/* 음료/디저트 메뉴 링크 */
+/*음료/디저트 메뉴 링크*/
        .box-cafe-menu{
            height: 575px;
            background-color: rgb(236, 234, 234);
@@ -436,7 +446,7 @@
            border-radius: 30px;
            font-size: 18px;
        }
-/* 주문확인 리스트 */
+/*주문확인 리스트*/
 	.h5-list{
 		font-weight: bold;
 	}
@@ -444,10 +454,10 @@
 		height: 640px;
 	}
 	.btn-order_list>.box-btn-submit{
-		margin-top: 50px;
 		float: right;
+		width: 60px;
 	}
-/* 공지사항,문의  */
+/*공지사항,문의 */
        .justify-content-center{
             justify-content: center;
             display: flex;
@@ -470,7 +480,7 @@
        	.fas{
        		line-height: 1.5px;
    		} 
-/* 가맹문의  */
+/*가맹문의 */
 		label{
 			font-weight: 50;
 		}
@@ -501,18 +511,19 @@
             width: 1000px;
             height: 260px;
             border: 1px solid black;
-            padding-left: 10px;
+            padding: 40px 10px;
         }
         .nav-info-list{
             list-style: none;
             float: left;
             padding: 0;
             box-sizing: border-box;
+            margin: 5px 0 35px 0;
         }
         .list-info{
             width: 300px;
             float: left;
-            margin-right: 30px;
+            margin-right: 26px;
         }
         .unagree{
             text-align: center;
@@ -540,6 +551,9 @@
         }
         .container-member-title{
         	margin-bottom: 0;
+        }
+        .eudia-info{
+        	margin-bottom: 15px;
         }
 /*footer*/
       footer {
