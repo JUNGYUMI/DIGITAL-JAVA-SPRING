@@ -14,21 +14,22 @@ public class Criteria {
 			this.type = 0;
 		}
 		
-		public String getSearch() {
-			return search;
-		}
-
-		public void setSearch(String search) {
-			this.search = search;
-		}
-
-		public int getType() {
-			return type;
-		}
-
-		public void setType(int type) {
-			this.type = type;
-		}
+		public String getSearch() { 
+			return search; 
+		} 
+		public void setSearch(String search) { 
+			this.search = search; 
+		} 
+		public int getType() { 
+			return type; 
+		} 
+		public void setType(int type) { 
+			if(type < 0 || type > 3) 
+				this.type = 0; 
+			else 
+				this.type = type; 
+			this.type = type; 
+		} 
 
 		public int getPage() {
 			return page;
@@ -50,6 +51,7 @@ public class Criteria {
 				this.perPageNum = 10;
 				this.perPageNum = perPageNum;
 		}
+		
 		@Override
 		public String toString() {
 			return "Criteria [page=" + page + ", perPageNum=" + perPageNum + ", search=" + search + ", type=" + type
