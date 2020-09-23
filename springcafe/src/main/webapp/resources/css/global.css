@@ -100,6 +100,10 @@
 	.carousel-control.right {
 		background-image: linear-gradient(to right,rgba(0,0,0,0%) 0,rgba(0,0,0,0%) 100%);
 	}
+	.rolling_image{
+		width: 1200px;
+		height: 700px;
+	}
 /*sns 꾸미기*/
      .box-container-wrapper{
          height: 414px;

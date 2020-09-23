@@ -14,26 +14,23 @@
 <!-- 넘어 갈 사진들 -->
             <div class="carousel-inner" role="listbox">
               <div class="item active">
-                <img src="<%=request.getContextPath()%>/resources/img/cafe_image2.jpg" alt="EUDIA" width="1200" height="700">      
+                <img class="rolling_image" src="<%=request.getContextPath()%>/resources/img/cafe_image2.jpg" alt="EUDIA" width="1200" height="700">      
               </div>
         
               <div class="item">
-                <img src="<%=request.getContextPath()%>/resources/img/cafe_image2.jpg" alt="SCONE" width="1200" height="700">
+                <img class="rolling_image" src="<%=request.getContextPath()%>/resources/img/scone_image.jpg" alt="SCONE" width="1200" height="700">
                 <div class="carousel-caption">
-                  <h3>스콘 사진</h3>
                 </div>      
               </div>
             
               <div class="item">
-                <img src="<%=request.getContextPath()%>/resources/img/cafe_image3.jpg" alt="DRINK" width="1200" height="700">
+                <img class="rolling_image" src="<%=request.getContextPath()%>/resources/img/drink_image.jpg" alt="DRINK" width="1200" height="700">
                 <div class="carousel-caption">
-                  <h3>음료사진</h3>   
                 </div>      
               </div>
               <div class="item">
-                <img src="<%=request.getContextPath()%>/resources/img/cafe_image3.jpg" alt="etc" width="1200" height="700">
+                <img class="rolling_image" src="<%=request.getContextPath()%>/resources/img/background2.jpg" alt="etc" width="1200" height="700">
                 <div class="carousel-caption">
-                  <h3>기타사진</h3>   
                 </div>      
               </div>
             </div>
