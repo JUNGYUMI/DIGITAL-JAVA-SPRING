@@ -18,9 +18,36 @@
 			    </thead>
 			    <tbody>
 			      <tr>
-			        <td>1111</td>
-			        <td>2222</td>
-			        <td>3333　　<img src="<%=request.getContextPath()%>/resources/img/background.jpg" alt="product_img" width="60" height="60"></td>
+			        <td>1</td>
+			        <td>DRINK15</td>
+			        <td>카페라떼　　<img src="<%=request.getContextPath()%>/resources/img/background.jpg" alt="product_img" width="60" height="60"></td>
+					<td>
+						<a href="#" id="decreaseQuantity"><i class="fas fa-minus"></i></a> 
+		          		<span id="numberUpDown">　1　</span>
+					    <a href="#" id="increaseQuantity"><i class="fas fa-plus"></i></a></td>
+			      </tr>
+			      <tr>
+			        <td>2</td>
+			        <td>DRINK06</td>
+			        <td>보라구마　　<img src="<%=request.getContextPath()%>/resources/img/background.jpg" alt="product_img" width="60" height="60"></td>
+					<td>
+						<a href="#" id="decreaseQuantity"><i class="fas fa-minus"></i></a> 
+		          		<span id="numberUpDown">　1　</span>
+					    <a href="#" id="increaseQuantity"><i class="fas fa-plus"></i></a></td>
+			      </tr>
+			      <tr>
+			        <td>3</td>
+			        <td>DRINK08</td>
+			        <td>초코나무숲　　<img src="<%=request.getContextPath()%>/resources/img/background.jpg" alt="product_img" width="60" height="60"></td>
+					<td>
+						<a href="#" id="decreaseQuantity"><i class="fas fa-minus"></i></a> 
+		          		<span id="numberUpDown">　1　</span>
+					    <a href="#" id="increaseQuantity"><i class="fas fa-plus"></i></a></td>
+			      </tr>
+			      <tr>
+			        <td>4</td>
+			        <td>DRINK12</td>
+			        <td>쉐이크(밀크)　　<img src="<%=request.getContextPath()%>/resources/img/background.jpg" alt="product_img" width="60" height="60"></td>
 					<td>
 						<a href="#" id="decreaseQuantity"><i class="fas fa-minus"></i></a> 
 		          		<span id="numberUpDown">　1　</span>
